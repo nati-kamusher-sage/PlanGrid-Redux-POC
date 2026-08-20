@@ -26,6 +26,10 @@ series of small pull requests; see the
 The standalone demo app lives in [`app/`](app/). See
 [`app/README.md`](app/README.md) for setup and verification commands.
 
-Before benchmark results are treated as a pass/fail decision (PR 6/7 in the
-implementation plan), the reference benchmark machine and browser must be agreed
-and recorded, per the PRD's open decisions.
+## Benchmark result
+
+The POC's final result and recommendation are in
+[`docs/benchmark-results/README.md`](docs/benchmark-results/README.md). The
+reference environment was recorded at PR 7 rather than before PR 1 as the
+plan intended; see that note for the caveat this implies for the next design
+review.

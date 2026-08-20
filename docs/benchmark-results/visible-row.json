@@ -1,0 +1,1537 @@
+{
+  "metadata": {
+    "timestamp": "2026-08-20T08:26:37.299Z",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.7922.34 Safari/537.36",
+    "buildMode": "production",
+    "agGridVersion": "36.1.0",
+    "fixtureSize": 1000
+  },
+  "summary": {
+    "editCount": 30,
+    "p50EditToPaintMs": 14.800000000745058,
+    "p95EditToPaintMs": 16.199999999254942,
+    "maxEditToPaintMs": 16.40000000037253,
+    "reducerDurationMs": {
+      "p50": 0.19999999925494194,
+      "p95": 0.2999999988824129
+    },
+    "bridgeDurationMs": {
+      "p50": 0.599999999627471,
+      "p95": 0.8000000007450581
+    },
+    "transactionDurationMs": {
+      "p50": 0.40000000037252903,
+      "p95": 0.6000000014901161
+    },
+    "gridShellRenderDelta": 0,
+    "totalBridgeUpdates": 30,
+    "totalTransactions": 30,
+    "totalUpdatedRowIds": 30,
+    "totalRefreshedCellIds": 60,
+    "displayedRowCount": 1000,
+    "totalRowCount": 1000,
+    "invariantViolationCount": 0
+  },
+  "traces": [
+    {
+      "editId": "edit-4",
+      "rowId": "pl-000001",
+      "periodId": "M01",
+      "startTime": 914.5,
+      "reducer": {
+        "actionCount": 1,
+        "affectedEntityId": "pl-000001",
+        "durationMs": 0.19999999925494194
+      },
+      "bridge": {
+        "notificationCount": 1,
+        "affectedIds": [
+          "pl-000001"
+        ],
+        "projectedRowCount": 1,
+        "durationMs": 0.8000000007450581
+      },
+      "transaction": {
+        "transactionCount": 1,
+        "updateLength": 1,
+        "rowIds": [
+          "pl-000001"
+        ],
+        "durationMs": 0.6000000014901161
+      },
+      "cellRefresh": {
+        "refreshedRowIds": [
+          "pl-000001"
+        ],
+        "refreshedColIds": [
+          "M01",
+          "annualTotal"
+        ],
+        "derivedFromCellRendererProbe": true
+      },
+      "render": {
+        "gridShellRenderCountBefore": 1,
+        "gridShellRenderCountAfter": 1
+      },
+      "paint": {
+        "editToPaintMs": 16.199999999254942
+      },
+      "invariants": {
+        "singleActionDispatched": true,
+        "singleTransactionSingleRow": true,
+        "gridShellRenderCountStable": true,
+        "noUnaffectedRowRefreshed": true
+      }
+    },
+    {
+      "editId": "edit-5",
+      "rowId": "pl-000001",
+      "periodId": "M02",
+      "startTime": 1073.0999999996275,
+      "reducer": {
+        "actionCount": 1,
+        "affectedEntityId": "pl-000001",
+        "durationMs": 0.2000000011175871
+      },
+      "bridge": {
+        "notificationCount": 1,
+        "affectedIds": [
+          "pl-000001"
+        ],
+        "projectedRowCount": 1,
+        "durationMs": 0.8000000007450581
+      },
+      "transaction": {
+        "transactionCount": 1,
+        "updateLength": 1,
+        "rowIds": [
+          "pl-000001"
+        ],
+        "durationMs": 0.599999999627471
+      },
+      "cellRefresh": {
+        "refreshedRowIds": [
+          "pl-000001"
+        ],
+        "refreshedColIds": [
+          "M02",
+          "annualTotal"
+        ],
+        "derivedFromCellRendererProbe": true
+      },
+      "render": {
+        "gridShellRenderCountBefore": 1,
+        "gridShellRenderCountAfter": 1
+      },
+      "paint": {
+        "editToPaintMs": 16
+      },
+      "invariants": {
+        "singleActionDispatched": true,
+        "singleTransactionSingleRow": true,
+        "gridShellRenderCountStable": true,
+        "noUnaffectedRowRefreshed": true
+      }
+    },
+    {
+      "editId": "edit-6",
+      "rowId": "pl-000001",
+      "periodId": "M03",
+      "startTime": 1215.5,
+      "reducer": {
+        "actionCount": 1,
+        "affectedEntityId": "pl-000001",
+        "durationMs": 0.19999999925494194
+      },
+      "bridge": {
+        "notificationCount": 1,
+        "affectedIds": [
+          "pl-000001"
+        ],
+        "projectedRowCount": 1,
+        "durationMs": 0.8000000007450581
+      },
+      "transaction": {
+        "transactionCount": 1,
+        "updateLength": 1,
+        "rowIds": [
+          "pl-000001"
+        ],
+        "durationMs": 0.6000000014901161
+      },
+      "cellRefresh": {
+        "refreshedRowIds": [
+          "pl-000001"
+        ],
+        "refreshedColIds": [
+          "M03",
+          "annualTotal"
+        ],
+        "derivedFromCellRendererProbe": true
+      },
+      "render": {
+        "gridShellRenderCountBefore": 1,
+        "gridShellRenderCountAfter": 1
+      },
+      "paint": {
+        "editToPaintMs": 15.199999999254942
+      },
+      "invariants": {
+        "singleActionDispatched": true,
+        "singleTransactionSingleRow": true,
+        "gridShellRenderCountStable": true,
+        "noUnaffectedRowRefreshed": true
+      }
+    },
+    {
+      "editId": "edit-7",
+      "rowId": "pl-000001",
+      "periodId": "M04",
+      "startTime": 1374.199999999255,
+      "reducer": {
+        "actionCount": 1,
+        "affectedEntityId": "pl-000001",
+        "durationMs": 0.19999999925494194
+      },
+      "bridge": {
+        "notificationCount": 1,
+        "affectedIds": [
+          "pl-000001"
+        ],
+        "projectedRowCount": 1,
+        "durationMs": 0.6999999992549419
+      },
+      "transaction": {
+        "transactionCount": 1,
+        "updateLength": 1,
+        "rowIds": [
+          "pl-000001"
+        ],
+        "durationMs": 0.5
+      },
+      "cellRefresh": {
+        "refreshedRowIds": [
+          "pl-000001"
+        ],
+        "refreshedColIds": [
+          "M04",
+          "annualTotal"
+        ],
+        "derivedFromCellRendererProbe": true
+      },
+      "render": {
+        "gridShellRenderCountBefore": 1,
+        "gridShellRenderCountAfter": 1
+      },
+      "paint": {
+        "editToPaintMs": 14.800000000745058
+      },
+      "invariants": {
+        "singleActionDispatched": true,
+        "singleTransactionSingleRow": true,
+        "gridShellRenderCountStable": true,
+        "noUnaffectedRowRefreshed": true
+      }
+    },
+    {
+      "editId": "edit-8",
+      "rowId": "pl-000001",
+      "periodId": "M05",
+      "startTime": 1464.5999999996275,
+      "reducer": {
+        "actionCount": 1,
+        "affectedEntityId": "pl-000001",
+        "durationMs": 0.2000000011175871
+      },
+      "bridge": {
+        "notificationCount": 1,
+        "affectedIds": [
+          "pl-000001"
+        ],
+        "projectedRowCount": 1,
+        "durationMs": 0.7000000011175871
+      },
+      "transaction": {
+        "transactionCount": 1,
+        "updateLength": 1,
+        "rowIds": [
+          "pl-000001"
+        ],
+        "durationMs": 0.5
+      },
+      "cellRefresh": {
+        "refreshedRowIds": [
+          "pl-000001"
+        ],
+        "refreshedColIds": [
+          "M05",
+          "annualTotal"
+        ],
+        "derivedFromCellRendererProbe": true
+      },
+      "render": {
+        "gridShellRenderCountBefore": 1,
+        "gridShellRenderCountAfter": 1
+      },
+      "paint": {
+        "editToPaintMs": 16.40000000037253
+      },
+      "invariants": {
+        "singleActionDispatched": true,
+        "singleTransactionSingleRow": true,
+        "gridShellRenderCountStable": true,
+        "noUnaffectedRowRefreshed": true
+      }
+    },
+    {
+      "editId": "edit-9",
+      "rowId": "pl-000001",
+      "periodId": "M06",
+      "startTime": 1640.4000000003725,
+      "reducer": {
+        "actionCount": 1,
+        "affectedEntityId": "pl-000001",
+        "durationMs": 0.2999999988824129
+      },
+      "bridge": {
+        "notificationCount": 1,
+        "affectedIds": [
+          "pl-000001"
+        ],
+        "projectedRowCount": 1,
+        "durationMs": 0.6999999992549419
+      },
+      "transaction": {
+        "transactionCount": 1,
+        "updateLength": 1,
+        "rowIds": [
+          "pl-000001"
+        ],
+        "durationMs": 0.40000000037252903
+      },
+      "cellRefresh": {
+        "refreshedRowIds": [
+          "pl-000001"
+        ],
+        "refreshedColIds": [
+          "M06",
+          "annualTotal"
+        ],
+        "derivedFromCellRendererProbe": true
+      },
+      "render": {
+        "gridShellRenderCountBefore": 1,
+        "gridShellRenderCountAfter": 1
+      },
+      "paint": {
+        "editToPaintMs": 15.400000000372529
+      },
+      "invariants": {
+        "singleActionDispatched": true,
+        "singleTransactionSingleRow": true,
+        "gridShellRenderCountStable": true,
+        "noUnaffectedRowRefreshed": true
+      }
+    },
+    {
+      "editId": "edit-10",
+      "rowId": "pl-000001",
+      "periodId": "M07",
+      "startTime": 1799.300000000745,
+      "reducer": {
+        "actionCount": 1,
+        "affectedEntityId": "pl-000001",
+        "durationMs": 0.19999999925494194
+      },
+      "bridge": {
+        "notificationCount": 1,
+        "affectedIds": [
+          "pl-000001"
+        ],
+        "projectedRowCount": 1,
+        "durationMs": 0.6999999992549419
+      },
+      "transaction": {
+        "transactionCount": 1,
+        "updateLength": 1,
+        "rowIds": [
+          "pl-000001"
+        ],
+        "durationMs": 0.5
+      },
+      "cellRefresh": {
+        "refreshedRowIds": [
+          "pl-000001"
+        ],
+        "refreshedColIds": [
+          "M07",
+          "annualTotal"
+        ],
+        "derivedFromCellRendererProbe": true
+      },
+      "render": {
+        "gridShellRenderCountBefore": 1,
+        "gridShellRenderCountAfter": 1
+      },
+      "paint": {
+        "editToPaintMs": 14.699999999254942
+      },
+      "invariants": {
+        "singleActionDispatched": true,
+        "singleTransactionSingleRow": true,
+        "gridShellRenderCountStable": true,
+        "noUnaffectedRowRefreshed": true
+      }
+    },
+    {
+      "editId": "edit-11",
+      "rowId": "pl-000001",
+      "periodId": "M08",
+      "startTime": 1972.800000000745,
+      "reducer": {
+        "actionCount": 1,
+        "affectedEntityId": "pl-000001",
+        "durationMs": 0.19999999925494194
+      },
+      "bridge": {
+        "notificationCount": 1,
+        "affectedIds": [
+          "pl-000001"
+        ],
+        "projectedRowCount": 1,
+        "durationMs": 0.599999999627471
+      },
+      "transaction": {
+        "transactionCount": 1,
+        "updateLength": 1,
+        "rowIds": [
+          "pl-000001"
+        ],
+        "durationMs": 0.40000000037252903
+      },
+      "cellRefresh": {
+        "refreshedRowIds": [
+          "pl-000001"
+        ],
+        "refreshedColIds": [
+          "M08",
+          "annualTotal"
+        ],
+        "derivedFromCellRendererProbe": true
+      },
+      "render": {
+        "gridShellRenderCountBefore": 1,
+        "gridShellRenderCountAfter": 1
+      },
+      "paint": {
+        "editToPaintMs": 15.699999999254942
+      },
+      "invariants": {
+        "singleActionDispatched": true,
+        "singleTransactionSingleRow": true,
+        "gridShellRenderCountStable": true,
+        "noUnaffectedRowRefreshed": true
+      }
+    },
+    {
+      "editId": "edit-12",
+      "rowId": "pl-000001",
+      "periodId": "M09",
+      "startTime": 2132.5,
+      "reducer": {
+        "actionCount": 1,
+        "affectedEntityId": "pl-000001",
+        "durationMs": 0.09999999962747097
+      },
+      "bridge": {
+        "notificationCount": 1,
+        "affectedIds": [
+          "pl-000001"
+        ],
+        "projectedRowCount": 1,
+        "durationMs": 0.40000000037252903
+      },
+      "transaction": {
+        "transactionCount": 1,
+        "updateLength": 1,
+        "rowIds": [
+          "pl-000001"
+        ],
+        "durationMs": 0.30000000074505806
+      },
+      "cellRefresh": {
+        "refreshedRowIds": [
+          "pl-000001"
+        ],
+        "refreshedColIds": [
+          "M09",
+          "annualTotal"
+        ],
+        "derivedFromCellRendererProbe": true
+      },
+      "render": {
+        "gridShellRenderCountBefore": 1,
+        "gridShellRenderCountAfter": 1
+      },
+      "paint": {
+        "editToPaintMs": 15.300000000745058
+      },
+      "invariants": {
+        "singleActionDispatched": true,
+        "singleTransactionSingleRow": true,
+        "gridShellRenderCountStable": true,
+        "noUnaffectedRowRefreshed": true
+      }
+    },
+    {
+      "editId": "edit-13",
+      "rowId": "pl-000001",
+      "periodId": "M10",
+      "startTime": 2291.300000000745,
+      "reducer": {
+        "actionCount": 1,
+        "affectedEntityId": "pl-000001",
+        "durationMs": 0.09999999962747097
+      },
+      "bridge": {
+        "notificationCount": 1,
+        "affectedIds": [
+          "pl-000001"
+        ],
+        "projectedRowCount": 1,
+        "durationMs": 0.5
+      },
+      "transaction": {
+        "transactionCount": 1,
+        "updateLength": 1,
+        "rowIds": [
+          "pl-000001"
+        ],
+        "durationMs": 0.40000000037252903
+      },
+      "cellRefresh": {
+        "refreshedRowIds": [
+          "pl-000001"
+        ],
+        "refreshedColIds": [
+          "M10",
+          "annualTotal"
+        ],
+        "derivedFromCellRendererProbe": true
+      },
+      "render": {
+        "gridShellRenderCountBefore": 1,
+        "gridShellRenderCountAfter": 1
+      },
+      "paint": {
+        "editToPaintMs": 14.399999998509884
+      },
+      "invariants": {
+        "singleActionDispatched": true,
+        "singleTransactionSingleRow": true,
+        "gridShellRenderCountStable": true,
+        "noUnaffectedRowRefreshed": true
+      }
+    },
+    {
+      "editId": "edit-14",
+      "rowId": "pl-000001",
+      "periodId": "M11",
+      "startTime": 2449.199999999255,
+      "reducer": {
+        "actionCount": 1,
+        "affectedEntityId": "pl-000001",
+        "durationMs": 0.2000000011175871
+      },
+      "bridge": {
+        "notificationCount": 1,
+        "affectedIds": [
+          "pl-000001"
+        ],
+        "projectedRowCount": 1,
+        "durationMs": 0.7000000011175871
+      },
+      "transaction": {
+        "transactionCount": 1,
+        "updateLength": 1,
+        "rowIds": [
+          "pl-000001"
+        ],
+        "durationMs": 0.5
+      },
+      "cellRefresh": {
+        "refreshedRowIds": [
+          "pl-000001"
+        ],
+        "refreshedColIds": [
+          "M11",
+          "annualTotal"
+        ],
+        "derivedFromCellRendererProbe": true
+      },
+      "render": {
+        "gridShellRenderCountBefore": 1,
+        "gridShellRenderCountAfter": 1
+      },
+      "paint": {
+        "editToPaintMs": 14
+      },
+      "invariants": {
+        "singleActionDispatched": true,
+        "singleTransactionSingleRow": true,
+        "gridShellRenderCountStable": true,
+        "noUnaffectedRowRefreshed": true
+      }
+    },
+    {
+      "editId": "edit-15",
+      "rowId": "pl-000001",
+      "periodId": "M12",
+      "startTime": 2607,
+      "reducer": {
+        "actionCount": 1,
+        "affectedEntityId": "pl-000001",
+        "durationMs": 0.19999999925494194
+      },
+      "bridge": {
+        "notificationCount": 1,
+        "affectedIds": [
+          "pl-000001"
+        ],
+        "projectedRowCount": 1,
+        "durationMs": 0.599999999627471
+      },
+      "transaction": {
+        "transactionCount": 1,
+        "updateLength": 1,
+        "rowIds": [
+          "pl-000001"
+        ],
+        "durationMs": 0.40000000037252903
+      },
+      "cellRefresh": {
+        "refreshedRowIds": [
+          "pl-000001"
+        ],
+        "refreshedColIds": [
+          "M12",
+          "annualTotal"
+        ],
+        "derivedFromCellRendererProbe": true
+      },
+      "render": {
+        "gridShellRenderCountBefore": 1,
+        "gridShellRenderCountAfter": 1
+      },
+      "paint": {
+        "editToPaintMs": 14.5
+      },
+      "invariants": {
+        "singleActionDispatched": true,
+        "singleTransactionSingleRow": true,
+        "gridShellRenderCountStable": true,
+        "noUnaffectedRowRefreshed": true
+      }
+    },
+    {
+      "editId": "edit-16",
+      "rowId": "pl-000001",
+      "periodId": "M01",
+      "startTime": 2756.5,
+      "reducer": {
+        "actionCount": 1,
+        "affectedEntityId": "pl-000001",
+        "durationMs": 0.09999999962747097
+      },
+      "bridge": {
+        "notificationCount": 1,
+        "affectedIds": [
+          "pl-000001"
+        ],
+        "projectedRowCount": 1,
+        "durationMs": 0.599999999627471
+      },
+      "transaction": {
+        "transactionCount": 1,
+        "updateLength": 1,
+        "rowIds": [
+          "pl-000001"
+        ],
+        "durationMs": 0.5
+      },
+      "cellRefresh": {
+        "refreshedRowIds": [
+          "pl-000001"
+        ],
+        "refreshedColIds": [
+          "M01",
+          "annualTotal"
+        ],
+        "derivedFromCellRendererProbe": true
+      },
+      "render": {
+        "gridShellRenderCountBefore": 1,
+        "gridShellRenderCountAfter": 1
+      },
+      "paint": {
+        "editToPaintMs": 15.800000000745058
+      },
+      "invariants": {
+        "singleActionDispatched": true,
+        "singleTransactionSingleRow": true,
+        "gridShellRenderCountStable": true,
+        "noUnaffectedRowRefreshed": true
+      }
+    },
+    {
+      "editId": "edit-17",
+      "rowId": "pl-000001",
+      "periodId": "M02",
+      "startTime": 2906.800000000745,
+      "reducer": {
+        "actionCount": 1,
+        "affectedEntityId": "pl-000001",
+        "durationMs": 0.19999999925494194
+      },
+      "bridge": {
+        "notificationCount": 1,
+        "affectedIds": [
+          "pl-000001"
+        ],
+        "projectedRowCount": 1,
+        "durationMs": 0.599999999627471
+      },
+      "transaction": {
+        "transactionCount": 1,
+        "updateLength": 1,
+        "rowIds": [
+          "pl-000001"
+        ],
+        "durationMs": 0.40000000037252903
+      },
+      "cellRefresh": {
+        "refreshedRowIds": [
+          "pl-000001"
+        ],
+        "refreshedColIds": [
+          "M02",
+          "annualTotal"
+        ],
+        "derivedFromCellRendererProbe": true
+      },
+      "render": {
+        "gridShellRenderCountBefore": 1,
+        "gridShellRenderCountAfter": 1
+      },
+      "paint": {
+        "editToPaintMs": 15.199999999254942
+      },
+      "invariants": {
+        "singleActionDispatched": true,
+        "singleTransactionSingleRow": true,
+        "gridShellRenderCountStable": true,
+        "noUnaffectedRowRefreshed": true
+      }
+    },
+    {
+      "editId": "edit-18",
+      "rowId": "pl-000001",
+      "periodId": "M03",
+      "startTime": 3048.0999999996275,
+      "reducer": {
+        "actionCount": 1,
+        "affectedEntityId": "pl-000001",
+        "durationMs": 0.2000000011175871
+      },
+      "bridge": {
+        "notificationCount": 1,
+        "affectedIds": [
+          "pl-000001"
+        ],
+        "projectedRowCount": 1,
+        "durationMs": 0.7000000011175871
+      },
+      "transaction": {
+        "transactionCount": 1,
+        "updateLength": 1,
+        "rowIds": [
+          "pl-000001"
+        ],
+        "durationMs": 0.5
+      },
+      "cellRefresh": {
+        "refreshedRowIds": [
+          "pl-000001"
+        ],
+        "refreshedColIds": [
+          "M03",
+          "annualTotal"
+        ],
+        "derivedFromCellRendererProbe": true
+      },
+      "render": {
+        "gridShellRenderCountBefore": 1,
+        "gridShellRenderCountAfter": 1
+      },
+      "paint": {
+        "editToPaintMs": 15.599999999627471
+      },
+      "invariants": {
+        "singleActionDispatched": true,
+        "singleTransactionSingleRow": true,
+        "gridShellRenderCountStable": true,
+        "noUnaffectedRowRefreshed": true
+      }
+    },
+    {
+      "editId": "edit-19",
+      "rowId": "pl-000001",
+      "periodId": "M04",
+      "startTime": 3190.5999999996275,
+      "reducer": {
+        "actionCount": 1,
+        "affectedEntityId": "pl-000001",
+        "durationMs": 0.09999999962747097
+      },
+      "bridge": {
+        "notificationCount": 1,
+        "affectedIds": [
+          "pl-000001"
+        ],
+        "projectedRowCount": 1,
+        "durationMs": 0.599999999627471
+      },
+      "transaction": {
+        "transactionCount": 1,
+        "updateLength": 1,
+        "rowIds": [
+          "pl-000001"
+        ],
+        "durationMs": 0.5
+      },
+      "cellRefresh": {
+        "refreshedRowIds": [
+          "pl-000001"
+        ],
+        "refreshedColIds": [
+          "M04",
+          "annualTotal"
+        ],
+        "derivedFromCellRendererProbe": true
+      },
+      "render": {
+        "gridShellRenderCountBefore": 1,
+        "gridShellRenderCountAfter": 1
+      },
+      "paint": {
+        "editToPaintMs": 15.099999999627471
+      },
+      "invariants": {
+        "singleActionDispatched": true,
+        "singleTransactionSingleRow": true,
+        "gridShellRenderCountStable": true,
+        "noUnaffectedRowRefreshed": true
+      }
+    },
+    {
+      "editId": "edit-20",
+      "rowId": "pl-000001",
+      "periodId": "M05",
+      "startTime": 3340.9000000003725,
+      "reducer": {
+        "actionCount": 1,
+        "affectedEntityId": "pl-000001",
+        "durationMs": 0.19999999925494194
+      },
+      "bridge": {
+        "notificationCount": 1,
+        "affectedIds": [
+          "pl-000001"
+        ],
+        "projectedRowCount": 1,
+        "durationMs": 0.599999999627471
+      },
+      "transaction": {
+        "transactionCount": 1,
+        "updateLength": 1,
+        "rowIds": [
+          "pl-000001"
+        ],
+        "durationMs": 0.40000000037252903
+      },
+      "cellRefresh": {
+        "refreshedRowIds": [
+          "pl-000001"
+        ],
+        "refreshedColIds": [
+          "M05",
+          "annualTotal"
+        ],
+        "derivedFromCellRendererProbe": true
+      },
+      "render": {
+        "gridShellRenderCountBefore": 1,
+        "gridShellRenderCountAfter": 1
+      },
+      "paint": {
+        "editToPaintMs": 14.699999999254942
+      },
+      "invariants": {
+        "singleActionDispatched": true,
+        "singleTransactionSingleRow": true,
+        "gridShellRenderCountStable": true,
+        "noUnaffectedRowRefreshed": true
+      }
+    },
+    {
+      "editId": "edit-21",
+      "rowId": "pl-000001",
+      "periodId": "M06",
+      "startTime": 3483.699999999255,
+      "reducer": {
+        "actionCount": 1,
+        "affectedEntityId": "pl-000001",
+        "durationMs": 0.2000000011175871
+      },
+      "bridge": {
+        "notificationCount": 1,
+        "affectedIds": [
+          "pl-000001"
+        ],
+        "projectedRowCount": 1,
+        "durationMs": 0.5
+      },
+      "transaction": {
+        "transactionCount": 1,
+        "updateLength": 1,
+        "rowIds": [
+          "pl-000001"
+        ],
+        "durationMs": 0.2999999988824129
+      },
+      "cellRefresh": {
+        "refreshedRowIds": [
+          "pl-000001"
+        ],
+        "refreshedColIds": [
+          "M06",
+          "annualTotal"
+        ],
+        "derivedFromCellRendererProbe": true
+      },
+      "render": {
+        "gridShellRenderCountBefore": 1,
+        "gridShellRenderCountAfter": 1
+      },
+      "paint": {
+        "editToPaintMs": 13.600000001490116
+      },
+      "invariants": {
+        "singleActionDispatched": true,
+        "singleTransactionSingleRow": true,
+        "gridShellRenderCountStable": true,
+        "noUnaffectedRowRefreshed": true
+      }
+    },
+    {
+      "editId": "edit-22",
+      "rowId": "pl-000001",
+      "periodId": "M07",
+      "startTime": 3640.5,
+      "reducer": {
+        "actionCount": 1,
+        "affectedEntityId": "pl-000001",
+        "durationMs": 0.09999999962747097
+      },
+      "bridge": {
+        "notificationCount": 1,
+        "affectedIds": [
+          "pl-000001"
+        ],
+        "projectedRowCount": 1,
+        "durationMs": 0.599999999627471
+      },
+      "transaction": {
+        "transactionCount": 1,
+        "updateLength": 1,
+        "rowIds": [
+          "pl-000001"
+        ],
+        "durationMs": 0.5
+      },
+      "cellRefresh": {
+        "refreshedRowIds": [
+          "pl-000001"
+        ],
+        "refreshedColIds": [
+          "M07",
+          "annualTotal"
+        ],
+        "derivedFromCellRendererProbe": true
+      },
+      "render": {
+        "gridShellRenderCountBefore": 1,
+        "gridShellRenderCountAfter": 1
+      },
+      "paint": {
+        "editToPaintMs": 15.199999999254942
+      },
+      "invariants": {
+        "singleActionDispatched": true,
+        "singleTransactionSingleRow": true,
+        "gridShellRenderCountStable": true,
+        "noUnaffectedRowRefreshed": true
+      }
+    },
+    {
+      "editId": "edit-23",
+      "rowId": "pl-000001",
+      "periodId": "M08",
+      "startTime": 3782.300000000745,
+      "reducer": {
+        "actionCount": 1,
+        "affectedEntityId": "pl-000001",
+        "durationMs": 0.09999999962747097
+      },
+      "bridge": {
+        "notificationCount": 1,
+        "affectedIds": [
+          "pl-000001"
+        ],
+        "projectedRowCount": 1,
+        "durationMs": 0.5
+      },
+      "transaction": {
+        "transactionCount": 1,
+        "updateLength": 1,
+        "rowIds": [
+          "pl-000001"
+        ],
+        "durationMs": 0.40000000037252903
+      },
+      "cellRefresh": {
+        "refreshedRowIds": [
+          "pl-000001"
+        ],
+        "refreshedColIds": [
+          "M08",
+          "annualTotal"
+        ],
+        "derivedFromCellRendererProbe": true
+      },
+      "render": {
+        "gridShellRenderCountBefore": 1,
+        "gridShellRenderCountAfter": 1
+      },
+      "paint": {
+        "editToPaintMs": 14.299999998882413
+      },
+      "invariants": {
+        "singleActionDispatched": true,
+        "singleTransactionSingleRow": true,
+        "gridShellRenderCountStable": true,
+        "noUnaffectedRowRefreshed": true
+      }
+    },
+    {
+      "editId": "edit-24",
+      "rowId": "pl-000001",
+      "periodId": "M09",
+      "startTime": 3915.699999999255,
+      "reducer": {
+        "actionCount": 1,
+        "affectedEntityId": "pl-000001",
+        "durationMs": 0.30000000074505806
+      },
+      "bridge": {
+        "notificationCount": 1,
+        "affectedIds": [
+          "pl-000001"
+        ],
+        "projectedRowCount": 1,
+        "durationMs": 0.6000000014901161
+      },
+      "transaction": {
+        "transactionCount": 1,
+        "updateLength": 1,
+        "rowIds": [
+          "pl-000001"
+        ],
+        "durationMs": 0.30000000074505806
+      },
+      "cellRefresh": {
+        "refreshedRowIds": [
+          "pl-000001"
+        ],
+        "refreshedColIds": [
+          "M09",
+          "annualTotal"
+        ],
+        "derivedFromCellRendererProbe": true
+      },
+      "render": {
+        "gridShellRenderCountBefore": 1,
+        "gridShellRenderCountAfter": 1
+      },
+      "paint": {
+        "editToPaintMs": 14.800000000745058
+      },
+      "invariants": {
+        "singleActionDispatched": true,
+        "singleTransactionSingleRow": true,
+        "gridShellRenderCountStable": true,
+        "noUnaffectedRowRefreshed": true
+      }
+    },
+    {
+      "editId": "edit-25",
+      "rowId": "pl-000001",
+      "periodId": "M10",
+      "startTime": 4057.800000000745,
+      "reducer": {
+        "actionCount": 1,
+        "affectedEntityId": "pl-000001",
+        "durationMs": 0.09999999962747097
+      },
+      "bridge": {
+        "notificationCount": 1,
+        "affectedIds": [
+          "pl-000001"
+        ],
+        "projectedRowCount": 1,
+        "durationMs": 0.5
+      },
+      "transaction": {
+        "transactionCount": 1,
+        "updateLength": 1,
+        "rowIds": [
+          "pl-000001"
+        ],
+        "durationMs": 0.40000000037252903
+      },
+      "cellRefresh": {
+        "refreshedRowIds": [
+          "pl-000001"
+        ],
+        "refreshedColIds": [
+          "M10",
+          "annualTotal"
+        ],
+        "derivedFromCellRendererProbe": true
+      },
+      "render": {
+        "gridShellRenderCountBefore": 1,
+        "gridShellRenderCountAfter": 1
+      },
+      "paint": {
+        "editToPaintMs": 14.599999999627471
+      },
+      "invariants": {
+        "singleActionDispatched": true,
+        "singleTransactionSingleRow": true,
+        "gridShellRenderCountStable": true,
+        "noUnaffectedRowRefreshed": true
+      }
+    },
+    {
+      "editId": "edit-26",
+      "rowId": "pl-000001",
+      "periodId": "M11",
+      "startTime": 4207.300000000745,
+      "reducer": {
+        "actionCount": 1,
+        "affectedEntityId": "pl-000001",
+        "durationMs": 0.09999999962747097
+      },
+      "bridge": {
+        "notificationCount": 1,
+        "affectedIds": [
+          "pl-000001"
+        ],
+        "projectedRowCount": 1,
+        "durationMs": 0.5
+      },
+      "transaction": {
+        "transactionCount": 1,
+        "updateLength": 1,
+        "rowIds": [
+          "pl-000001"
+        ],
+        "durationMs": 0.40000000037252903
+      },
+      "cellRefresh": {
+        "refreshedRowIds": [
+          "pl-000001"
+        ],
+        "refreshedColIds": [
+          "M11",
+          "annualTotal"
+        ],
+        "derivedFromCellRendererProbe": true
+      },
+      "render": {
+        "gridShellRenderCountBefore": 1,
+        "gridShellRenderCountAfter": 1
+      },
+      "paint": {
+        "editToPaintMs": 15
+      },
+      "invariants": {
+        "singleActionDispatched": true,
+        "singleTransactionSingleRow": true,
+        "gridShellRenderCountStable": true,
+        "noUnaffectedRowRefreshed": true
+      }
+    },
+    {
+      "editId": "edit-27",
+      "rowId": "pl-000001",
+      "periodId": "M12",
+      "startTime": 4358.0999999996275,
+      "reducer": {
+        "actionCount": 1,
+        "affectedEntityId": "pl-000001",
+        "durationMs": 0
+      },
+      "bridge": {
+        "notificationCount": 1,
+        "affectedIds": [
+          "pl-000001"
+        ],
+        "projectedRowCount": 1,
+        "durationMs": 0.40000000037252903
+      },
+      "transaction": {
+        "transactionCount": 1,
+        "updateLength": 1,
+        "rowIds": [
+          "pl-000001"
+        ],
+        "durationMs": 0.40000000037252903
+      },
+      "cellRefresh": {
+        "refreshedRowIds": [
+          "pl-000001"
+        ],
+        "refreshedColIds": [
+          "M12",
+          "annualTotal"
+        ],
+        "derivedFromCellRendererProbe": true
+      },
+      "render": {
+        "gridShellRenderCountBefore": 1,
+        "gridShellRenderCountAfter": 1
+      },
+      "paint": {
+        "editToPaintMs": 13.400000000372529
+      },
+      "invariants": {
+        "singleActionDispatched": true,
+        "singleTransactionSingleRow": true,
+        "gridShellRenderCountStable": true,
+        "noUnaffectedRowRefreshed": true
+      }
+    },
+    {
+      "editId": "edit-28",
+      "rowId": "pl-000001",
+      "periodId": "M01",
+      "startTime": 4500.199999999255,
+      "reducer": {
+        "actionCount": 1,
+        "affectedEntityId": "pl-000001",
+        "durationMs": 0.10000000149011612
+      },
+      "bridge": {
+        "notificationCount": 1,
+        "affectedIds": [
+          "pl-000001"
+        ],
+        "projectedRowCount": 1,
+        "durationMs": 0.5
+      },
+      "transaction": {
+        "transactionCount": 1,
+        "updateLength": 1,
+        "rowIds": [
+          "pl-000001"
+        ],
+        "durationMs": 0.3999999985098839
+      },
+      "cellRefresh": {
+        "refreshedRowIds": [
+          "pl-000001"
+        ],
+        "refreshedColIds": [
+          "M01",
+          "annualTotal"
+        ],
+        "derivedFromCellRendererProbe": true
+      },
+      "render": {
+        "gridShellRenderCountBefore": 1,
+        "gridShellRenderCountAfter": 1
+      },
+      "paint": {
+        "editToPaintMs": 13.800000000745058
+      },
+      "invariants": {
+        "singleActionDispatched": true,
+        "singleTransactionSingleRow": true,
+        "gridShellRenderCountStable": true,
+        "noUnaffectedRowRefreshed": true
+      }
+    },
+    {
+      "editId": "edit-29",
+      "rowId": "pl-000001",
+      "periodId": "M02",
+      "startTime": 4658.199999999255,
+      "reducer": {
+        "actionCount": 1,
+        "affectedEntityId": "pl-000001",
+        "durationMs": 0.2000000011175871
+      },
+      "bridge": {
+        "notificationCount": 1,
+        "affectedIds": [
+          "pl-000001"
+        ],
+        "projectedRowCount": 1,
+        "durationMs": 0.6000000014901161
+      },
+      "transaction": {
+        "transactionCount": 1,
+        "updateLength": 1,
+        "rowIds": [
+          "pl-000001"
+        ],
+        "durationMs": 0.40000000037252903
+      },
+      "cellRefresh": {
+        "refreshedRowIds": [
+          "pl-000001"
+        ],
+        "refreshedColIds": [
+          "M02",
+          "annualTotal"
+        ],
+        "derivedFromCellRendererProbe": true
+      },
+      "render": {
+        "gridShellRenderCountBefore": 1,
+        "gridShellRenderCountAfter": 1
+      },
+      "paint": {
+        "editToPaintMs": 14.100000001490116
+      },
+      "invariants": {
+        "singleActionDispatched": true,
+        "singleTransactionSingleRow": true,
+        "gridShellRenderCountStable": true,
+        "noUnaffectedRowRefreshed": true
+      }
+    },
+    {
+      "editId": "edit-30",
+      "rowId": "pl-000001",
+      "periodId": "M03",
+      "startTime": 4800,
+      "reducer": {
+        "actionCount": 1,
+        "affectedEntityId": "pl-000001",
+        "durationMs": 0.19999999925494194
+      },
+      "bridge": {
+        "notificationCount": 1,
+        "affectedIds": [
+          "pl-000001"
+        ],
+        "projectedRowCount": 1,
+        "durationMs": 0.5
+      },
+      "transaction": {
+        "transactionCount": 1,
+        "updateLength": 1,
+        "rowIds": [
+          "pl-000001"
+        ],
+        "durationMs": 0.30000000074505806
+      },
+      "cellRefresh": {
+        "refreshedRowIds": [
+          "pl-000001"
+        ],
+        "refreshedColIds": [
+          "M03",
+          "annualTotal"
+        ],
+        "derivedFromCellRendererProbe": true
+      },
+      "render": {
+        "gridShellRenderCountBefore": 1,
+        "gridShellRenderCountAfter": 1
+      },
+      "paint": {
+        "editToPaintMs": 14
+      },
+      "invariants": {
+        "singleActionDispatched": true,
+        "singleTransactionSingleRow": true,
+        "gridShellRenderCountStable": true,
+        "noUnaffectedRowRefreshed": true
+      }
+    },
+    {
+      "editId": "edit-31",
+      "rowId": "pl-000001",
+      "periodId": "M04",
+      "startTime": 4949.699999999255,
+      "reducer": {
+        "actionCount": 1,
+        "affectedEntityId": "pl-000001",
+        "durationMs": 0.2000000011175871
+      },
+      "bridge": {
+        "notificationCount": 1,
+        "affectedIds": [
+          "pl-000001"
+        ],
+        "projectedRowCount": 1,
+        "durationMs": 0.5
+      },
+      "transaction": {
+        "transactionCount": 1,
+        "updateLength": 1,
+        "rowIds": [
+          "pl-000001"
+        ],
+        "durationMs": 0.2999999988824129
+      },
+      "cellRefresh": {
+        "refreshedRowIds": [
+          "pl-000001"
+        ],
+        "refreshedColIds": [
+          "M04",
+          "annualTotal"
+        ],
+        "derivedFromCellRendererProbe": true
+      },
+      "render": {
+        "gridShellRenderCountBefore": 1,
+        "gridShellRenderCountAfter": 1
+      },
+      "paint": {
+        "editToPaintMs": 14.200000001117587
+      },
+      "invariants": {
+        "singleActionDispatched": true,
+        "singleTransactionSingleRow": true,
+        "gridShellRenderCountStable": true,
+        "noUnaffectedRowRefreshed": true
+      }
+    },
+    {
+      "editId": "edit-32",
+      "rowId": "pl-000001",
+      "periodId": "M05",
+      "startTime": 5106.9000000003725,
+      "reducer": {
+        "actionCount": 1,
+        "affectedEntityId": "pl-000001",
+        "durationMs": 0.09999999962747097
+      },
+      "bridge": {
+        "notificationCount": 1,
+        "affectedIds": [
+          "pl-000001"
+        ],
+        "projectedRowCount": 1,
+        "durationMs": 0.5
+      },
+      "transaction": {
+        "transactionCount": 1,
+        "updateLength": 1,
+        "rowIds": [
+          "pl-000001"
+        ],
+        "durationMs": 0.40000000037252903
+      },
+      "cellRefresh": {
+        "refreshedRowIds": [
+          "pl-000001"
+        ],
+        "refreshedColIds": [
+          "M05",
+          "annualTotal"
+        ],
+        "derivedFromCellRendererProbe": true
+      },
+      "render": {
+        "gridShellRenderCountBefore": 1,
+        "gridShellRenderCountAfter": 1
+      },
+      "paint": {
+        "editToPaintMs": 15.5
+      },
+      "invariants": {
+        "singleActionDispatched": true,
+        "singleTransactionSingleRow": true,
+        "gridShellRenderCountStable": true,
+        "noUnaffectedRowRefreshed": true
+      }
+    },
+    {
+      "editId": "edit-33",
+      "rowId": "pl-000001",
+      "periodId": "M06",
+      "startTime": 5266.699999999255,
+      "reducer": {
+        "actionCount": 1,
+        "affectedEntityId": "pl-000001",
+        "durationMs": 0.2000000011175871
+      },
+      "bridge": {
+        "notificationCount": 1,
+        "affectedIds": [
+          "pl-000001"
+        ],
+        "projectedRowCount": 1,
+        "durationMs": 0.40000000037252903
+      },
+      "transaction": {
+        "transactionCount": 1,
+        "updateLength": 1,
+        "rowIds": [
+          "pl-000001"
+        ],
+        "durationMs": 0.19999999925494194
+      },
+      "cellRefresh": {
+        "refreshedRowIds": [
+          "pl-000001"
+        ],
+        "refreshedColIds": [
+          "M06",
+          "annualTotal"
+        ],
+        "derivedFromCellRendererProbe": true
+      },
+      "render": {
+        "gridShellRenderCountBefore": 1,
+        "gridShellRenderCountAfter": 1
+      },
+      "paint": {
+        "editToPaintMs": 14
+      },
+      "invariants": {
+        "singleActionDispatched": true,
+        "singleTransactionSingleRow": true,
+        "gridShellRenderCountStable": true,
+        "noUnaffectedRowRefreshed": true
+      }
+    }
+  ]
+}
