@@ -9,6 +9,7 @@ declare global {
       import('./features/planningModel/types').GridRowHandle
     >
     __getGridShellRenderCount__: () => number
+    __batchChangedRowNotifications__: (work: () => void) => void
   }
 }
 
