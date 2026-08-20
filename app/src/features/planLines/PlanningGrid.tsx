@@ -39,6 +39,9 @@ export function PlanningGrid() {
 
   const onGridReady = useCallback((event: GridReadyEvent<PlanLine>) => {
     gridApiRef.current = event.api
+    // Exposed for browser-test navigation only (e.g. api.ensureColumnVisible
+    // / api.ensureIndexVisible), same rationale as window.__store__.
+    window.__gridApi__ = event.api
   }, [])
 
   const onCellValueChanged = useCallback(
