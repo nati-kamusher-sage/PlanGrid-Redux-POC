@@ -17,7 +17,7 @@ async function scrollGridFullyRight(page: Page) {
     })
 }
 
-test('grid becomes ready with 1,000 rows and the intended columns', async ({ page }) => {
+test('grid becomes ready with 1,000 row handles and the intended columns', async ({ page }) => {
   await page.goto('/')
 
   const grid = page.getByTestId('planning-grid')
@@ -33,12 +33,14 @@ test('grid becomes ready with 1,000 rows and the intended columns', async ({ pag
   ])
 
   await expect(cell(page, 'id')).toHaveText('pl-000001')
-  await expect(cell(page, 'account')).toHaveText('4000 Advertising')
-  await expect(cell(page, 'M01')).toHaveText('44.12')
+  await expect(cell(page, 'account')).toHaveText('4006 Equipment')
+  await expect(cell(page, 'department')).toHaveText('Marketing')
+  await expect(cell(page, 'location')).toHaveText('US-East')
+  await expect(cell(page, 'M01')).toHaveText('69.39')
 
   await scrollGridFullyRight(page)
   await expect(grid.locator('.ag-header-cell-text')).toContainText(['M12', 'Annual Total'])
-  await expect(cell(page, 'annualTotal')).toHaveText('582.25')
+  await expect(cell(page, 'annualTotal')).toHaveText('574.43')
 })
 
 test('a monthly cell is editable and the annual total is read-only', async ({ page }) => {

@@ -1,13 +1,13 @@
 import { useDispatch, useSelector } from 'react-redux'
 import type { AppDispatch, RootState } from '../../app/store'
-import { fixtureReset } from './planLinesSlice'
+import { fixtureReset } from './planningModelSlice'
 import type { FixtureSize } from './types'
 
-const FIXTURE_SIZES: FixtureSize[] = [100, 1000, 5000]
+const FIXTURE_SIZES: FixtureSize[] = [100, 1000, 50_000]
 
 export function FixtureSizeSelector() {
   const dispatch = useDispatch<AppDispatch>()
-  const fixtureSize = useSelector((state: RootState) => state.planLines.fixtureSize)
+  const fixtureSize = useSelector((state: RootState) => state.planningModel.fixtureSize)
 
   return (
     <label>
