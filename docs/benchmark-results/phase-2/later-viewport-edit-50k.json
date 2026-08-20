@@ -1,0 +1,1619 @@
+{
+  "metadata": {
+    "timestamp": "2026-08-20T15:21:05.312Z",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.7922.34 Safari/537.36",
+    "buildMode": "production",
+    "agGridVersion": "36.1.0",
+    "fixtureSize": 50000,
+    "referenceEnvironment": "Apple M1 Pro, 32 GB RAM, macOS 26.5.2 (build 25F84), arm64; Playwright-managed Chromium, production preview build (npm run build && npm run preview)"
+  },
+  "summary": {
+    "editCount": 33,
+    "syncCpuMs": {
+      "p50": 19.799999998882413,
+      "p95": 21.59999999962747,
+      "max": 25.40000000037253
+    },
+    "editToPaintMs": {
+      "p50": 25,
+      "p95": 33,
+      "max": 34.90000000037253
+    },
+    "gridShellRenderDelta": 0,
+    "totalNotifications": 33,
+    "totalRefreshCellsCalls": 33,
+    "invariantViolationCount": 0,
+    "correctnessViolationCount": 0
+  },
+  "traces": [
+    {
+      "editId": "edit-1",
+      "planLineId": "pl-025001",
+      "row": 25000,
+      "periodId": "M06",
+      "scenario": "later-viewport",
+      "startTime": 615.6999999992549,
+      "reducer": {
+        "actionCount": 1,
+        "durationMs": 19.300000000745058
+      },
+      "notification": {
+        "notificationCount": 1,
+        "row": 25000,
+        "columns": [
+          "M06",
+          "annualTotal"
+        ],
+        "durationMs": 0
+      },
+      "gridRefresh": {
+        "refreshCellsCallCount": 1,
+        "rowNodeCount": 1,
+        "columns": [
+          "M06",
+          "annualTotal"
+        ],
+        "durationMs": 0.19999999925494194
+      },
+      "syncCpuMs": 19.5,
+      "render": {
+        "gridShellRenderCountBefore": 2,
+        "gridShellRenderCountAfter": 2
+      },
+      "paint": {
+        "editToPaintMs": 34.90000000037253
+      },
+      "correctness": {
+        "resultValueCorrect": true,
+        "annualTotalCorrect": true
+      },
+      "invariants": {
+        "singleActionDispatched": true,
+        "singleNotificationSingleRow": true,
+        "targetedColumnsCorrect": true,
+        "gridShellRenderCountStable": true
+      }
+    },
+    {
+      "editId": "edit-2",
+      "planLineId": "pl-025001",
+      "row": 25000,
+      "periodId": "M06",
+      "scenario": "later-viewport",
+      "startTime": 650.5999999996275,
+      "reducer": {
+        "actionCount": 1,
+        "durationMs": 20.199999999254942
+      },
+      "notification": {
+        "notificationCount": 1,
+        "row": 25000,
+        "columns": [
+          "M06",
+          "annualTotal"
+        ],
+        "durationMs": 0
+      },
+      "gridRefresh": {
+        "refreshCellsCallCount": 1,
+        "rowNodeCount": 1,
+        "columns": [
+          "M06",
+          "annualTotal"
+        ],
+        "durationMs": 0.40000000037252903
+      },
+      "syncCpuMs": 20.59999999962747,
+      "render": {
+        "gridShellRenderCountBefore": 2,
+        "gridShellRenderCountAfter": 2
+      },
+      "paint": {
+        "editToPaintMs": 29.90000000037253
+      },
+      "correctness": {
+        "resultValueCorrect": true,
+        "annualTotalCorrect": true
+      },
+      "invariants": {
+        "singleActionDispatched": true,
+        "singleNotificationSingleRow": true,
+        "targetedColumnsCorrect": true,
+        "gridShellRenderCountStable": true
+      }
+    },
+    {
+      "editId": "edit-3",
+      "planLineId": "pl-025001",
+      "row": 25000,
+      "periodId": "M06",
+      "scenario": "later-viewport",
+      "startTime": 680.5,
+      "reducer": {
+        "actionCount": 1,
+        "durationMs": 19.199999999254942
+      },
+      "notification": {
+        "notificationCount": 1,
+        "row": 25000,
+        "columns": [
+          "M06",
+          "annualTotal"
+        ],
+        "durationMs": 0
+      },
+      "gridRefresh": {
+        "refreshCellsCallCount": 1,
+        "rowNodeCount": 1,
+        "columns": [
+          "M06",
+          "annualTotal"
+        ],
+        "durationMs": 0.19999999925494194
+      },
+      "syncCpuMs": 19.399999998509884,
+      "render": {
+        "gridShellRenderCountBefore": 2,
+        "gridShellRenderCountAfter": 2
+      },
+      "paint": {
+        "editToPaintMs": 25
+      },
+      "correctness": {
+        "resultValueCorrect": true,
+        "annualTotalCorrect": true
+      },
+      "invariants": {
+        "singleActionDispatched": true,
+        "singleNotificationSingleRow": true,
+        "targetedColumnsCorrect": true,
+        "gridShellRenderCountStable": true
+      }
+    },
+    {
+      "editId": "edit-4",
+      "planLineId": "pl-025001",
+      "row": 25000,
+      "periodId": "M06",
+      "scenario": "later-viewport",
+      "startTime": 705.5,
+      "reducer": {
+        "actionCount": 1,
+        "durationMs": 19.799999998882413
+      },
+      "notification": {
+        "notificationCount": 1,
+        "row": 25000,
+        "columns": [
+          "M06",
+          "annualTotal"
+        ],
+        "durationMs": 0
+      },
+      "gridRefresh": {
+        "refreshCellsCallCount": 1,
+        "rowNodeCount": 1,
+        "columns": [
+          "M06",
+          "annualTotal"
+        ],
+        "durationMs": 0.2000000011175871
+      },
+      "syncCpuMs": 20,
+      "render": {
+        "gridShellRenderCountBefore": 2,
+        "gridShellRenderCountAfter": 2
+      },
+      "paint": {
+        "editToPaintMs": 25.09999999962747
+      },
+      "correctness": {
+        "resultValueCorrect": true,
+        "annualTotalCorrect": true
+      },
+      "invariants": {
+        "singleActionDispatched": true,
+        "singleNotificationSingleRow": true,
+        "targetedColumnsCorrect": true,
+        "gridShellRenderCountStable": true
+      }
+    },
+    {
+      "editId": "edit-5",
+      "planLineId": "pl-025001",
+      "row": 25000,
+      "periodId": "M06",
+      "scenario": "later-viewport",
+      "startTime": 730.5999999996275,
+      "reducer": {
+        "actionCount": 1,
+        "durationMs": 19
+      },
+      "notification": {
+        "notificationCount": 1,
+        "row": 25000,
+        "columns": [
+          "M06",
+          "annualTotal"
+        ],
+        "durationMs": 0
+      },
+      "gridRefresh": {
+        "refreshCellsCallCount": 1,
+        "rowNodeCount": 1,
+        "columns": [
+          "M06",
+          "annualTotal"
+        ],
+        "durationMs": 0.19999999925494194
+      },
+      "syncCpuMs": 19.199999999254942,
+      "render": {
+        "gridShellRenderCountBefore": 2,
+        "gridShellRenderCountAfter": 2
+      },
+      "paint": {
+        "editToPaintMs": 24.90000000037253
+      },
+      "correctness": {
+        "resultValueCorrect": true,
+        "annualTotalCorrect": true
+      },
+      "invariants": {
+        "singleActionDispatched": true,
+        "singleNotificationSingleRow": true,
+        "targetedColumnsCorrect": true,
+        "gridShellRenderCountStable": true
+      }
+    },
+    {
+      "editId": "edit-6",
+      "planLineId": "pl-025001",
+      "row": 25000,
+      "periodId": "M06",
+      "scenario": "later-viewport",
+      "startTime": 755.5,
+      "reducer": {
+        "actionCount": 1,
+        "durationMs": 20.399999998509884
+      },
+      "notification": {
+        "notificationCount": 1,
+        "row": 25000,
+        "columns": [
+          "M06",
+          "annualTotal"
+        ],
+        "durationMs": 0.09999999962747097
+      },
+      "gridRefresh": {
+        "refreshCellsCallCount": 1,
+        "rowNodeCount": 1,
+        "columns": [
+          "M06",
+          "annualTotal"
+        ],
+        "durationMs": 0.10000000149011612
+      },
+      "syncCpuMs": 20.59999999962747,
+      "render": {
+        "gridShellRenderCountBefore": 2,
+        "gridShellRenderCountAfter": 2
+      },
+      "paint": {
+        "editToPaintMs": 25
+      },
+      "correctness": {
+        "resultValueCorrect": true,
+        "annualTotalCorrect": true
+      },
+      "invariants": {
+        "singleActionDispatched": true,
+        "singleNotificationSingleRow": true,
+        "targetedColumnsCorrect": true,
+        "gridShellRenderCountStable": true
+      }
+    },
+    {
+      "editId": "edit-7",
+      "planLineId": "pl-025001",
+      "row": 25000,
+      "periodId": "M06",
+      "scenario": "later-viewport",
+      "startTime": 780.5,
+      "reducer": {
+        "actionCount": 1,
+        "durationMs": 20
+      },
+      "notification": {
+        "notificationCount": 1,
+        "row": 25000,
+        "columns": [
+          "M06",
+          "annualTotal"
+        ],
+        "durationMs": 0
+      },
+      "gridRefresh": {
+        "refreshCellsCallCount": 1,
+        "rowNodeCount": 1,
+        "columns": [
+          "M06",
+          "annualTotal"
+        ],
+        "durationMs": 0.09999999962747097
+      },
+      "syncCpuMs": 20.09999999962747,
+      "render": {
+        "gridShellRenderCountBefore": 2,
+        "gridShellRenderCountAfter": 2
+      },
+      "paint": {
+        "editToPaintMs": 25
+      },
+      "correctness": {
+        "resultValueCorrect": true,
+        "annualTotalCorrect": true
+      },
+      "invariants": {
+        "singleActionDispatched": true,
+        "singleNotificationSingleRow": true,
+        "targetedColumnsCorrect": true,
+        "gridShellRenderCountStable": true
+      }
+    },
+    {
+      "editId": "edit-8",
+      "planLineId": "pl-025001",
+      "row": 25000,
+      "periodId": "M06",
+      "scenario": "later-viewport",
+      "startTime": 805.5999999996275,
+      "reducer": {
+        "actionCount": 1,
+        "durationMs": 21.09999999962747
+      },
+      "notification": {
+        "notificationCount": 1,
+        "row": 25000,
+        "columns": [
+          "M06",
+          "annualTotal"
+        ],
+        "durationMs": 0
+      },
+      "gridRefresh": {
+        "refreshCellsCallCount": 1,
+        "rowNodeCount": 1,
+        "columns": [
+          "M06",
+          "annualTotal"
+        ],
+        "durationMs": 0.19999999925494194
+      },
+      "syncCpuMs": 21.299999998882413,
+      "render": {
+        "gridShellRenderCountBefore": 2,
+        "gridShellRenderCountAfter": 2
+      },
+      "paint": {
+        "editToPaintMs": 24.90000000037253
+      },
+      "correctness": {
+        "resultValueCorrect": true,
+        "annualTotalCorrect": true
+      },
+      "invariants": {
+        "singleActionDispatched": true,
+        "singleNotificationSingleRow": true,
+        "targetedColumnsCorrect": true,
+        "gridShellRenderCountStable": true
+      }
+    },
+    {
+      "editId": "edit-9",
+      "planLineId": "pl-025001",
+      "row": 25000,
+      "periodId": "M06",
+      "scenario": "later-viewport",
+      "startTime": 830.5999999996275,
+      "reducer": {
+        "actionCount": 1,
+        "durationMs": 19.40000000037253
+      },
+      "notification": {
+        "notificationCount": 1,
+        "row": 25000,
+        "columns": [
+          "M06",
+          "annualTotal"
+        ],
+        "durationMs": 0
+      },
+      "gridRefresh": {
+        "refreshCellsCallCount": 1,
+        "rowNodeCount": 1,
+        "columns": [
+          "M06",
+          "annualTotal"
+        ],
+        "durationMs": 0.19999999925494194
+      },
+      "syncCpuMs": 19.59999999962747,
+      "render": {
+        "gridShellRenderCountBefore": 2,
+        "gridShellRenderCountAfter": 2
+      },
+      "paint": {
+        "editToPaintMs": 24.90000000037253
+      },
+      "correctness": {
+        "resultValueCorrect": true,
+        "annualTotalCorrect": true
+      },
+      "invariants": {
+        "singleActionDispatched": true,
+        "singleNotificationSingleRow": true,
+        "targetedColumnsCorrect": true,
+        "gridShellRenderCountStable": true
+      }
+    },
+    {
+      "editId": "edit-10",
+      "planLineId": "pl-025001",
+      "row": 25000,
+      "periodId": "M06",
+      "scenario": "later-viewport",
+      "startTime": 855.5,
+      "reducer": {
+        "actionCount": 1,
+        "durationMs": 21.299999998882413
+      },
+      "notification": {
+        "notificationCount": 1,
+        "row": 25000,
+        "columns": [
+          "M06",
+          "annualTotal"
+        ],
+        "durationMs": 0
+      },
+      "gridRefresh": {
+        "refreshCellsCallCount": 1,
+        "rowNodeCount": 1,
+        "columns": [
+          "M06",
+          "annualTotal"
+        ],
+        "durationMs": 0.2000000011175871
+      },
+      "syncCpuMs": 21.5,
+      "render": {
+        "gridShellRenderCountBefore": 2,
+        "gridShellRenderCountAfter": 2
+      },
+      "paint": {
+        "editToPaintMs": 25.299999998882413
+      },
+      "correctness": {
+        "resultValueCorrect": true,
+        "annualTotalCorrect": true
+      },
+      "invariants": {
+        "singleActionDispatched": true,
+        "singleNotificationSingleRow": true,
+        "targetedColumnsCorrect": true,
+        "gridShellRenderCountStable": true
+      }
+    },
+    {
+      "editId": "edit-11",
+      "planLineId": "pl-025001",
+      "row": 25000,
+      "periodId": "M06",
+      "scenario": "later-viewport",
+      "startTime": 880.7999999988824,
+      "reducer": {
+        "actionCount": 1,
+        "durationMs": 25.40000000037253
+      },
+      "notification": {
+        "notificationCount": 1,
+        "row": 25000,
+        "columns": [
+          "M06",
+          "annualTotal"
+        ],
+        "durationMs": 0
+      },
+      "gridRefresh": {
+        "refreshCellsCallCount": 1,
+        "rowNodeCount": 1,
+        "columns": [
+          "M06",
+          "annualTotal"
+        ],
+        "durationMs": 0
+      },
+      "syncCpuMs": 25.40000000037253,
+      "render": {
+        "gridShellRenderCountBefore": 2,
+        "gridShellRenderCountAfter": 2
+      },
+      "paint": {
+        "editToPaintMs": 33
+      },
+      "correctness": {
+        "resultValueCorrect": true,
+        "annualTotalCorrect": true
+      },
+      "invariants": {
+        "singleActionDispatched": true,
+        "singleNotificationSingleRow": true,
+        "targetedColumnsCorrect": true,
+        "gridShellRenderCountStable": true
+      }
+    },
+    {
+      "editId": "edit-12",
+      "planLineId": "pl-025001",
+      "row": 25000,
+      "periodId": "M06",
+      "scenario": "later-viewport",
+      "startTime": 913.8999999985099,
+      "reducer": {
+        "actionCount": 1,
+        "durationMs": 20.600000001490116
+      },
+      "notification": {
+        "notificationCount": 1,
+        "row": 25000,
+        "columns": [
+          "M06",
+          "annualTotal"
+        ],
+        "durationMs": 0
+      },
+      "gridRefresh": {
+        "refreshCellsCallCount": 1,
+        "rowNodeCount": 1,
+        "columns": [
+          "M06",
+          "annualTotal"
+        ],
+        "durationMs": 0.09999999962747097
+      },
+      "syncCpuMs": 20.700000001117587,
+      "render": {
+        "gridShellRenderCountBefore": 2,
+        "gridShellRenderCountAfter": 2
+      },
+      "paint": {
+        "editToPaintMs": 25
+      },
+      "correctness": {
+        "resultValueCorrect": true,
+        "annualTotalCorrect": true
+      },
+      "invariants": {
+        "singleActionDispatched": true,
+        "singleNotificationSingleRow": true,
+        "targetedColumnsCorrect": true,
+        "gridShellRenderCountStable": true
+      }
+    },
+    {
+      "editId": "edit-13",
+      "planLineId": "pl-025001",
+      "row": 25000,
+      "periodId": "M06",
+      "scenario": "later-viewport",
+      "startTime": 938.8999999985099,
+      "reducer": {
+        "actionCount": 1,
+        "durationMs": 19.600000001490116
+      },
+      "notification": {
+        "notificationCount": 1,
+        "row": 25000,
+        "columns": [
+          "M06",
+          "annualTotal"
+        ],
+        "durationMs": 0
+      },
+      "gridRefresh": {
+        "refreshCellsCallCount": 1,
+        "rowNodeCount": 1,
+        "columns": [
+          "M06",
+          "annualTotal"
+        ],
+        "durationMs": 0
+      },
+      "syncCpuMs": 19.600000001490116,
+      "render": {
+        "gridShellRenderCountBefore": 2,
+        "gridShellRenderCountAfter": 2
+      },
+      "paint": {
+        "editToPaintMs": 25
+      },
+      "correctness": {
+        "resultValueCorrect": true,
+        "annualTotalCorrect": true
+      },
+      "invariants": {
+        "singleActionDispatched": true,
+        "singleNotificationSingleRow": true,
+        "targetedColumnsCorrect": true,
+        "gridShellRenderCountStable": true
+      }
+    },
+    {
+      "editId": "edit-14",
+      "planLineId": "pl-025001",
+      "row": 25000,
+      "periodId": "M06",
+      "scenario": "later-viewport",
+      "startTime": 963.8999999985099,
+      "reducer": {
+        "actionCount": 1,
+        "durationMs": 19.800000000745058
+      },
+      "notification": {
+        "notificationCount": 1,
+        "row": 25000,
+        "columns": [
+          "M06",
+          "annualTotal"
+        ],
+        "durationMs": 0
+      },
+      "gridRefresh": {
+        "refreshCellsCallCount": 1,
+        "rowNodeCount": 1,
+        "columns": [
+          "M06",
+          "annualTotal"
+        ],
+        "durationMs": 0.09999999962747097
+      },
+      "syncCpuMs": 19.90000000037253,
+      "render": {
+        "gridShellRenderCountBefore": 2,
+        "gridShellRenderCountAfter": 2
+      },
+      "paint": {
+        "editToPaintMs": 24.90000000037253
+      },
+      "correctness": {
+        "resultValueCorrect": true,
+        "annualTotalCorrect": true
+      },
+      "invariants": {
+        "singleActionDispatched": true,
+        "singleNotificationSingleRow": true,
+        "targetedColumnsCorrect": true,
+        "gridShellRenderCountStable": true
+      }
+    },
+    {
+      "editId": "edit-15",
+      "planLineId": "pl-025001",
+      "row": 25000,
+      "periodId": "M06",
+      "scenario": "later-viewport",
+      "startTime": 988.7999999988824,
+      "reducer": {
+        "actionCount": 1,
+        "durationMs": 20.5
+      },
+      "notification": {
+        "notificationCount": 1,
+        "row": 25000,
+        "columns": [
+          "M06",
+          "annualTotal"
+        ],
+        "durationMs": 0
+      },
+      "gridRefresh": {
+        "refreshCellsCallCount": 1,
+        "rowNodeCount": 1,
+        "columns": [
+          "M06",
+          "annualTotal"
+        ],
+        "durationMs": 0.09999999962747097
+      },
+      "syncCpuMs": 20.59999999962747,
+      "render": {
+        "gridShellRenderCountBefore": 2,
+        "gridShellRenderCountAfter": 2
+      },
+      "paint": {
+        "editToPaintMs": 25.300000000745058
+      },
+      "correctness": {
+        "resultValueCorrect": true,
+        "annualTotalCorrect": true
+      },
+      "invariants": {
+        "singleActionDispatched": true,
+        "singleNotificationSingleRow": true,
+        "targetedColumnsCorrect": true,
+        "gridShellRenderCountStable": true
+      }
+    },
+    {
+      "editId": "edit-16",
+      "planLineId": "pl-025001",
+      "row": 25000,
+      "periodId": "M06",
+      "scenario": "later-viewport",
+      "startTime": 1014.0999999996275,
+      "reducer": {
+        "actionCount": 1,
+        "durationMs": 19.199999999254942
+      },
+      "notification": {
+        "notificationCount": 1,
+        "row": 25000,
+        "columns": [
+          "M06",
+          "annualTotal"
+        ],
+        "durationMs": 0
+      },
+      "gridRefresh": {
+        "refreshCellsCallCount": 1,
+        "rowNodeCount": 1,
+        "columns": [
+          "M06",
+          "annualTotal"
+        ],
+        "durationMs": 0.2000000011175871
+      },
+      "syncCpuMs": 19.40000000037253,
+      "render": {
+        "gridShellRenderCountBefore": 2,
+        "gridShellRenderCountAfter": 2
+      },
+      "paint": {
+        "editToPaintMs": 24.699999999254942
+      },
+      "correctness": {
+        "resultValueCorrect": true,
+        "annualTotalCorrect": true
+      },
+      "invariants": {
+        "singleActionDispatched": true,
+        "singleNotificationSingleRow": true,
+        "targetedColumnsCorrect": true,
+        "gridShellRenderCountStable": true
+      }
+    },
+    {
+      "editId": "edit-17",
+      "planLineId": "pl-025001",
+      "row": 25000,
+      "periodId": "M06",
+      "scenario": "later-viewport",
+      "startTime": 1038.8999999985099,
+      "reducer": {
+        "actionCount": 1,
+        "durationMs": 18.600000001490116
+      },
+      "notification": {
+        "notificationCount": 1,
+        "row": 25000,
+        "columns": [
+          "M06",
+          "annualTotal"
+        ],
+        "durationMs": 0
+      },
+      "gridRefresh": {
+        "refreshCellsCallCount": 1,
+        "rowNodeCount": 1,
+        "columns": [
+          "M06",
+          "annualTotal"
+        ],
+        "durationMs": 0.09999999962747097
+      },
+      "syncCpuMs": 18.700000001117587,
+      "render": {
+        "gridShellRenderCountBefore": 2,
+        "gridShellRenderCountAfter": 2
+      },
+      "paint": {
+        "editToPaintMs": 24.100000001490116
+      },
+      "correctness": {
+        "resultValueCorrect": true,
+        "annualTotalCorrect": true
+      },
+      "invariants": {
+        "singleActionDispatched": true,
+        "singleNotificationSingleRow": true,
+        "targetedColumnsCorrect": true,
+        "gridShellRenderCountStable": true
+      }
+    },
+    {
+      "editId": "edit-18",
+      "planLineId": "pl-025001",
+      "row": 25000,
+      "periodId": "M06",
+      "scenario": "later-viewport",
+      "startTime": 1063,
+      "reducer": {
+        "actionCount": 1,
+        "durationMs": 19.699999999254942
+      },
+      "notification": {
+        "notificationCount": 1,
+        "row": 25000,
+        "columns": [
+          "M06",
+          "annualTotal"
+        ],
+        "durationMs": 0
+      },
+      "gridRefresh": {
+        "refreshCellsCallCount": 1,
+        "rowNodeCount": 1,
+        "columns": [
+          "M06",
+          "annualTotal"
+        ],
+        "durationMs": 0.09999999962747097
+      },
+      "syncCpuMs": 19.799999998882413,
+      "render": {
+        "gridShellRenderCountBefore": 2,
+        "gridShellRenderCountAfter": 2
+      },
+      "paint": {
+        "editToPaintMs": 25.899999998509884
+      },
+      "correctness": {
+        "resultValueCorrect": true,
+        "annualTotalCorrect": true
+      },
+      "invariants": {
+        "singleActionDispatched": true,
+        "singleNotificationSingleRow": true,
+        "targetedColumnsCorrect": true,
+        "gridShellRenderCountStable": true
+      }
+    },
+    {
+      "editId": "edit-19",
+      "planLineId": "pl-025001",
+      "row": 25000,
+      "periodId": "M06",
+      "scenario": "later-viewport",
+      "startTime": 1088.8999999985099,
+      "reducer": {
+        "actionCount": 1,
+        "durationMs": 20
+      },
+      "notification": {
+        "notificationCount": 1,
+        "row": 25000,
+        "columns": [
+          "M06",
+          "annualTotal"
+        ],
+        "durationMs": 0
+      },
+      "gridRefresh": {
+        "refreshCellsCallCount": 1,
+        "rowNodeCount": 1,
+        "columns": [
+          "M06",
+          "annualTotal"
+        ],
+        "durationMs": 0.10000000149011612
+      },
+      "syncCpuMs": 20.100000001490116,
+      "render": {
+        "gridShellRenderCountBefore": 2,
+        "gridShellRenderCountAfter": 2
+      },
+      "paint": {
+        "editToPaintMs": 25
+      },
+      "correctness": {
+        "resultValueCorrect": true,
+        "annualTotalCorrect": true
+      },
+      "invariants": {
+        "singleActionDispatched": true,
+        "singleNotificationSingleRow": true,
+        "targetedColumnsCorrect": true,
+        "gridShellRenderCountStable": true
+      }
+    },
+    {
+      "editId": "edit-20",
+      "planLineId": "pl-025001",
+      "row": 25000,
+      "periodId": "M06",
+      "scenario": "later-viewport",
+      "startTime": 1113.8999999985099,
+      "reducer": {
+        "actionCount": 1,
+        "durationMs": 19.5
+      },
+      "notification": {
+        "notificationCount": 1,
+        "row": 25000,
+        "columns": [
+          "M06",
+          "annualTotal"
+        ],
+        "durationMs": 0
+      },
+      "gridRefresh": {
+        "refreshCellsCallCount": 1,
+        "rowNodeCount": 1,
+        "columns": [
+          "M06",
+          "annualTotal"
+        ],
+        "durationMs": 0.2000000011175871
+      },
+      "syncCpuMs": 19.700000001117587,
+      "render": {
+        "gridShellRenderCountBefore": 2,
+        "gridShellRenderCountAfter": 2
+      },
+      "paint": {
+        "editToPaintMs": 24.90000000037253
+      },
+      "correctness": {
+        "resultValueCorrect": true,
+        "annualTotalCorrect": true
+      },
+      "invariants": {
+        "singleActionDispatched": true,
+        "singleNotificationSingleRow": true,
+        "targetedColumnsCorrect": true,
+        "gridShellRenderCountStable": true
+      }
+    },
+    {
+      "editId": "edit-21",
+      "planLineId": "pl-025001",
+      "row": 25000,
+      "periodId": "M06",
+      "scenario": "later-viewport",
+      "startTime": 1138.7999999988824,
+      "reducer": {
+        "actionCount": 1,
+        "durationMs": 20.40000000037253
+      },
+      "notification": {
+        "notificationCount": 1,
+        "row": 25000,
+        "columns": [
+          "M06",
+          "annualTotal"
+        ],
+        "durationMs": 0
+      },
+      "gridRefresh": {
+        "refreshCellsCallCount": 1,
+        "rowNodeCount": 1,
+        "columns": [
+          "M06",
+          "annualTotal"
+        ],
+        "durationMs": 0.09999999962747097
+      },
+      "syncCpuMs": 20.5,
+      "render": {
+        "gridShellRenderCountBefore": 2,
+        "gridShellRenderCountAfter": 2
+      },
+      "paint": {
+        "editToPaintMs": 25
+      },
+      "correctness": {
+        "resultValueCorrect": true,
+        "annualTotalCorrect": true
+      },
+      "invariants": {
+        "singleActionDispatched": true,
+        "singleNotificationSingleRow": true,
+        "targetedColumnsCorrect": true,
+        "gridShellRenderCountStable": true
+      }
+    },
+    {
+      "editId": "edit-22",
+      "planLineId": "pl-025001",
+      "row": 25000,
+      "periodId": "M06",
+      "scenario": "later-viewport",
+      "startTime": 1163.7999999988824,
+      "reducer": {
+        "actionCount": 1,
+        "durationMs": 18.700000001117587
+      },
+      "notification": {
+        "notificationCount": 1,
+        "row": 25000,
+        "columns": [
+          "M06",
+          "annualTotal"
+        ],
+        "durationMs": 0
+      },
+      "gridRefresh": {
+        "refreshCellsCallCount": 1,
+        "rowNodeCount": 1,
+        "columns": [
+          "M06",
+          "annualTotal"
+        ],
+        "durationMs": 0
+      },
+      "syncCpuMs": 18.700000001117587,
+      "render": {
+        "gridShellRenderCountBefore": 2,
+        "gridShellRenderCountAfter": 2
+      },
+      "paint": {
+        "editToPaintMs": 25.200000001117587
+      },
+      "correctness": {
+        "resultValueCorrect": true,
+        "annualTotalCorrect": true
+      },
+      "invariants": {
+        "singleActionDispatched": true,
+        "singleNotificationSingleRow": true,
+        "targetedColumnsCorrect": true,
+        "gridShellRenderCountStable": true
+      }
+    },
+    {
+      "editId": "edit-23",
+      "planLineId": "pl-025001",
+      "row": 25000,
+      "periodId": "M06",
+      "scenario": "later-viewport",
+      "startTime": 1189,
+      "reducer": {
+        "actionCount": 1,
+        "durationMs": 19.299999998882413
+      },
+      "notification": {
+        "notificationCount": 1,
+        "row": 25000,
+        "columns": [
+          "M06",
+          "annualTotal"
+        ],
+        "durationMs": 0
+      },
+      "gridRefresh": {
+        "refreshCellsCallCount": 1,
+        "rowNodeCount": 1,
+        "columns": [
+          "M06",
+          "annualTotal"
+        ],
+        "durationMs": 0.09999999962747097
+      },
+      "syncCpuMs": 19.399999998509884,
+      "render": {
+        "gridShellRenderCountBefore": 2,
+        "gridShellRenderCountAfter": 2
+      },
+      "paint": {
+        "editToPaintMs": 24.899999998509884
+      },
+      "correctness": {
+        "resultValueCorrect": true,
+        "annualTotalCorrect": true
+      },
+      "invariants": {
+        "singleActionDispatched": true,
+        "singleNotificationSingleRow": true,
+        "targetedColumnsCorrect": true,
+        "gridShellRenderCountStable": true
+      }
+    },
+    {
+      "editId": "edit-24",
+      "planLineId": "pl-025001",
+      "row": 25000,
+      "periodId": "M06",
+      "scenario": "later-viewport",
+      "startTime": 1213.8999999985099,
+      "reducer": {
+        "actionCount": 1,
+        "durationMs": 20.40000000037253
+      },
+      "notification": {
+        "notificationCount": 1,
+        "row": 25000,
+        "columns": [
+          "M06",
+          "annualTotal"
+        ],
+        "durationMs": 0
+      },
+      "gridRefresh": {
+        "refreshCellsCallCount": 1,
+        "rowNodeCount": 1,
+        "columns": [
+          "M06",
+          "annualTotal"
+        ],
+        "durationMs": 0.09999999962747097
+      },
+      "syncCpuMs": 20.5,
+      "render": {
+        "gridShellRenderCountBefore": 2,
+        "gridShellRenderCountAfter": 2
+      },
+      "paint": {
+        "editToPaintMs": 24.90000000037253
+      },
+      "correctness": {
+        "resultValueCorrect": true,
+        "annualTotalCorrect": true
+      },
+      "invariants": {
+        "singleActionDispatched": true,
+        "singleNotificationSingleRow": true,
+        "targetedColumnsCorrect": true,
+        "gridShellRenderCountStable": true
+      }
+    },
+    {
+      "editId": "edit-25",
+      "planLineId": "pl-025001",
+      "row": 25000,
+      "periodId": "M06",
+      "scenario": "later-viewport",
+      "startTime": 1238.7999999988824,
+      "reducer": {
+        "actionCount": 1,
+        "durationMs": 18.800000000745058
+      },
+      "notification": {
+        "notificationCount": 1,
+        "row": 25000,
+        "columns": [
+          "M06",
+          "annualTotal"
+        ],
+        "durationMs": 0
+      },
+      "gridRefresh": {
+        "refreshCellsCallCount": 1,
+        "rowNodeCount": 1,
+        "columns": [
+          "M06",
+          "annualTotal"
+        ],
+        "durationMs": 0.09999999962747097
+      },
+      "syncCpuMs": 18.90000000037253,
+      "render": {
+        "gridShellRenderCountBefore": 2,
+        "gridShellRenderCountAfter": 2
+      },
+      "paint": {
+        "editToPaintMs": 25
+      },
+      "correctness": {
+        "resultValueCorrect": true,
+        "annualTotalCorrect": true
+      },
+      "invariants": {
+        "singleActionDispatched": true,
+        "singleNotificationSingleRow": true,
+        "targetedColumnsCorrect": true,
+        "gridShellRenderCountStable": true
+      }
+    },
+    {
+      "editId": "edit-26",
+      "planLineId": "pl-025001",
+      "row": 25000,
+      "periodId": "M06",
+      "scenario": "later-viewport",
+      "startTime": 1263.7999999988824,
+      "reducer": {
+        "actionCount": 1,
+        "durationMs": 19.300000000745058
+      },
+      "notification": {
+        "notificationCount": 1,
+        "row": 25000,
+        "columns": [
+          "M06",
+          "annualTotal"
+        ],
+        "durationMs": 0
+      },
+      "gridRefresh": {
+        "refreshCellsCallCount": 1,
+        "rowNodeCount": 1,
+        "columns": [
+          "M06",
+          "annualTotal"
+        ],
+        "durationMs": 0.19999999925494194
+      },
+      "syncCpuMs": 19.5,
+      "render": {
+        "gridShellRenderCountBefore": 2,
+        "gridShellRenderCountAfter": 2
+      },
+      "paint": {
+        "editToPaintMs": 25
+      },
+      "correctness": {
+        "resultValueCorrect": true,
+        "annualTotalCorrect": true
+      },
+      "invariants": {
+        "singleActionDispatched": true,
+        "singleNotificationSingleRow": true,
+        "targetedColumnsCorrect": true,
+        "gridShellRenderCountStable": true
+      }
+    },
+    {
+      "editId": "edit-27",
+      "planLineId": "pl-025001",
+      "row": 25000,
+      "periodId": "M06",
+      "scenario": "later-viewport",
+      "startTime": 1288.7999999988824,
+      "reducer": {
+        "actionCount": 1,
+        "durationMs": 20
+      },
+      "notification": {
+        "notificationCount": 1,
+        "row": 25000,
+        "columns": [
+          "M06",
+          "annualTotal"
+        ],
+        "durationMs": 0
+      },
+      "gridRefresh": {
+        "refreshCellsCallCount": 1,
+        "rowNodeCount": 1,
+        "columns": [
+          "M06",
+          "annualTotal"
+        ],
+        "durationMs": 0
+      },
+      "syncCpuMs": 20,
+      "render": {
+        "gridShellRenderCountBefore": 2,
+        "gridShellRenderCountAfter": 2
+      },
+      "paint": {
+        "editToPaintMs": 25
+      },
+      "correctness": {
+        "resultValueCorrect": true,
+        "annualTotalCorrect": true
+      },
+      "invariants": {
+        "singleActionDispatched": true,
+        "singleNotificationSingleRow": true,
+        "targetedColumnsCorrect": true,
+        "gridShellRenderCountStable": true
+      }
+    },
+    {
+      "editId": "edit-28",
+      "planLineId": "pl-025001",
+      "row": 25000,
+      "periodId": "M06",
+      "scenario": "later-viewport",
+      "startTime": 1313.7999999988824,
+      "reducer": {
+        "actionCount": 1,
+        "durationMs": 19.800000000745058
+      },
+      "notification": {
+        "notificationCount": 1,
+        "row": 25000,
+        "columns": [
+          "M06",
+          "annualTotal"
+        ],
+        "durationMs": 0
+      },
+      "gridRefresh": {
+        "refreshCellsCallCount": 1,
+        "rowNodeCount": 1,
+        "columns": [
+          "M06",
+          "annualTotal"
+        ],
+        "durationMs": 0.09999999962747097
+      },
+      "syncCpuMs": 19.90000000037253,
+      "render": {
+        "gridShellRenderCountBefore": 2,
+        "gridShellRenderCountAfter": 2
+      },
+      "paint": {
+        "editToPaintMs": 25
+      },
+      "correctness": {
+        "resultValueCorrect": true,
+        "annualTotalCorrect": true
+      },
+      "invariants": {
+        "singleActionDispatched": true,
+        "singleNotificationSingleRow": true,
+        "targetedColumnsCorrect": true,
+        "gridShellRenderCountStable": true
+      }
+    },
+    {
+      "editId": "edit-29",
+      "planLineId": "pl-025001",
+      "row": 25000,
+      "periodId": "M06",
+      "scenario": "later-viewport",
+      "startTime": 1338.7999999988824,
+      "reducer": {
+        "actionCount": 1,
+        "durationMs": 19.59999999962747
+      },
+      "notification": {
+        "notificationCount": 1,
+        "row": 25000,
+        "columns": [
+          "M06",
+          "annualTotal"
+        ],
+        "durationMs": 0
+      },
+      "gridRefresh": {
+        "refreshCellsCallCount": 1,
+        "rowNodeCount": 1,
+        "columns": [
+          "M06",
+          "annualTotal"
+        ],
+        "durationMs": 0.10000000149011612
+      },
+      "syncCpuMs": 19.700000001117587,
+      "render": {
+        "gridShellRenderCountBefore": 2,
+        "gridShellRenderCountAfter": 2
+      },
+      "paint": {
+        "editToPaintMs": 25.09999999962747
+      },
+      "correctness": {
+        "resultValueCorrect": true,
+        "annualTotalCorrect": true
+      },
+      "invariants": {
+        "singleActionDispatched": true,
+        "singleNotificationSingleRow": true,
+        "targetedColumnsCorrect": true,
+        "gridShellRenderCountStable": true
+      }
+    },
+    {
+      "editId": "edit-30",
+      "planLineId": "pl-025001",
+      "row": 25000,
+      "periodId": "M06",
+      "scenario": "later-viewport",
+      "startTime": 1363.8999999985099,
+      "reducer": {
+        "actionCount": 1,
+        "durationMs": 19.100000001490116
+      },
+      "notification": {
+        "notificationCount": 1,
+        "row": 25000,
+        "columns": [
+          "M06",
+          "annualTotal"
+        ],
+        "durationMs": 0
+      },
+      "gridRefresh": {
+        "refreshCellsCallCount": 1,
+        "rowNodeCount": 1,
+        "columns": [
+          "M06",
+          "annualTotal"
+        ],
+        "durationMs": 0.19999999925494194
+      },
+      "syncCpuMs": 19.300000000745058,
+      "render": {
+        "gridShellRenderCountBefore": 2,
+        "gridShellRenderCountAfter": 2
+      },
+      "paint": {
+        "editToPaintMs": 24.90000000037253
+      },
+      "correctness": {
+        "resultValueCorrect": true,
+        "annualTotalCorrect": true
+      },
+      "invariants": {
+        "singleActionDispatched": true,
+        "singleNotificationSingleRow": true,
+        "targetedColumnsCorrect": true,
+        "gridShellRenderCountStable": true
+      }
+    },
+    {
+      "editId": "edit-31",
+      "planLineId": "pl-025001",
+      "row": 25000,
+      "periodId": "M06",
+      "scenario": "later-viewport",
+      "startTime": 1388.7999999988824,
+      "reducer": {
+        "actionCount": 1,
+        "durationMs": 21.40000000037253
+      },
+      "notification": {
+        "notificationCount": 1,
+        "row": 25000,
+        "columns": [
+          "M06",
+          "annualTotal"
+        ],
+        "durationMs": 0
+      },
+      "gridRefresh": {
+        "refreshCellsCallCount": 1,
+        "rowNodeCount": 1,
+        "columns": [
+          "M06",
+          "annualTotal"
+        ],
+        "durationMs": 0.19999999925494194
+      },
+      "syncCpuMs": 21.59999999962747,
+      "render": {
+        "gridShellRenderCountBefore": 2,
+        "gridShellRenderCountAfter": 2
+      },
+      "paint": {
+        "editToPaintMs": 25
+      },
+      "correctness": {
+        "resultValueCorrect": true,
+        "annualTotalCorrect": true
+      },
+      "invariants": {
+        "singleActionDispatched": true,
+        "singleNotificationSingleRow": true,
+        "targetedColumnsCorrect": true,
+        "gridShellRenderCountStable": true
+      }
+    },
+    {
+      "editId": "edit-32",
+      "planLineId": "pl-025001",
+      "row": 25000,
+      "periodId": "M06",
+      "scenario": "later-viewport",
+      "startTime": 1413.7999999988824,
+      "reducer": {
+        "actionCount": 1,
+        "durationMs": 19.300000000745058
+      },
+      "notification": {
+        "notificationCount": 1,
+        "row": 25000,
+        "columns": [
+          "M06",
+          "annualTotal"
+        ],
+        "durationMs": 0
+      },
+      "gridRefresh": {
+        "refreshCellsCallCount": 1,
+        "rowNodeCount": 1,
+        "columns": [
+          "M06",
+          "annualTotal"
+        ],
+        "durationMs": 0.09999999962747097
+      },
+      "syncCpuMs": 19.40000000037253,
+      "render": {
+        "gridShellRenderCountBefore": 2,
+        "gridShellRenderCountAfter": 2
+      },
+      "paint": {
+        "editToPaintMs": 25
+      },
+      "correctness": {
+        "resultValueCorrect": true,
+        "annualTotalCorrect": true
+      },
+      "invariants": {
+        "singleActionDispatched": true,
+        "singleNotificationSingleRow": true,
+        "targetedColumnsCorrect": true,
+        "gridShellRenderCountStable": true
+      }
+    },
+    {
+      "editId": "edit-33",
+      "planLineId": "pl-025001",
+      "row": 25000,
+      "periodId": "M06",
+      "scenario": "later-viewport",
+      "startTime": 1438.7999999988824,
+      "reducer": {
+        "actionCount": 1,
+        "durationMs": 18.59999999962747
+      },
+      "notification": {
+        "notificationCount": 1,
+        "row": 25000,
+        "columns": [
+          "M06",
+          "annualTotal"
+        ],
+        "durationMs": 0
+      },
+      "gridRefresh": {
+        "refreshCellsCallCount": 1,
+        "rowNodeCount": 1,
+        "columns": [
+          "M06",
+          "annualTotal"
+        ],
+        "durationMs": 0.2000000011175871
+      },
+      "syncCpuMs": 18.800000000745058,
+      "render": {
+        "gridShellRenderCountBefore": 2,
+        "gridShellRenderCountAfter": 2
+      },
+      "paint": {
+        "editToPaintMs": 25
+      },
+      "correctness": {
+        "resultValueCorrect": true,
+        "annualTotalCorrect": true
+      },
+      "invariants": {
+        "singleActionDispatched": true,
+        "singleNotificationSingleRow": true,
+        "targetedColumnsCorrect": true,
+        "gridShellRenderCountStable": true
+      }
+    }
+  ],
+  "load": null,
+  "burst": null,
+  "warmUpCount": 3,
+  "measuredCount": 30,
+  "scrolledRowIndex": 25000
+}
