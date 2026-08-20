@@ -1,0 +1,87 @@
+{
+  "metadata": {
+    "timestamp": "2026-08-20T08:26:32.857Z",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.7922.34 Safari/537.36",
+    "buildMode": "production",
+    "agGridVersion": "36.1.0",
+    "fixtureSize": 100
+  },
+  "summary": {
+    "editCount": 1,
+    "p50EditToPaintMs": 15.400000000372529,
+    "p95EditToPaintMs": 15.400000000372529,
+    "maxEditToPaintMs": 15.400000000372529,
+    "reducerDurationMs": {
+      "p50": 0.30000000074505806,
+      "p95": 0.30000000074505806
+    },
+    "bridgeDurationMs": {
+      "p50": 1.300000000745058,
+      "p95": 1.300000000745058
+    },
+    "transactionDurationMs": {
+      "p50": 1,
+      "p95": 1
+    },
+    "gridShellRenderDelta": 0,
+    "totalBridgeUpdates": 1,
+    "totalTransactions": 1,
+    "totalUpdatedRowIds": 1,
+    "totalRefreshedCellIds": 2,
+    "displayedRowCount": 100,
+    "totalRowCount": 100,
+    "invariantViolationCount": 0
+  },
+  "traces": [
+    {
+      "editId": "edit-1",
+      "rowId": "pl-000001",
+      "periodId": "M01",
+      "startTime": 332,
+      "reducer": {
+        "actionCount": 1,
+        "affectedEntityId": "pl-000001",
+        "durationMs": 0.30000000074505806
+      },
+      "bridge": {
+        "notificationCount": 1,
+        "affectedIds": [
+          "pl-000001"
+        ],
+        "projectedRowCount": 1,
+        "durationMs": 1.300000000745058
+      },
+      "transaction": {
+        "transactionCount": 1,
+        "updateLength": 1,
+        "rowIds": [
+          "pl-000001"
+        ],
+        "durationMs": 1
+      },
+      "cellRefresh": {
+        "refreshedRowIds": [
+          "pl-000001"
+        ],
+        "refreshedColIds": [
+          "M01",
+          "annualTotal"
+        ],
+        "derivedFromCellRendererProbe": true
+      },
+      "render": {
+        "gridShellRenderCountBefore": 2,
+        "gridShellRenderCountAfter": 2
+      },
+      "paint": {
+        "editToPaintMs": 15.400000000372529
+      },
+      "invariants": {
+        "singleActionDispatched": true,
+        "singleTransactionSingleRow": true,
+        "gridShellRenderCountStable": true,
+        "noUnaffectedRowRefreshed": true
+      }
+    }
+  ]
+}
