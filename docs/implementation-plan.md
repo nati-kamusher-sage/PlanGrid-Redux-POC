@@ -8,6 +8,14 @@ target is a standalone Vite + React + TypeScript app in this repository. This
 keeps the experiment isolated from the production application while preserving a
 real browser build and test harness.
 
+## Follow-on phase
+
+The work in this document completed the original 1,000-row POC. The next phase
+is documented in the [Phase 2 implementation plan](phase-2-implementation-plan.md).
+It aligns the model to separate XPNA-style plan lines, accounts, dimensions, and
+results; validates stable row handles at 50,000 lines; and separates the
+synchronous edit CPU target from browser paint latency.
+
 Before PR 1 is merged, record the reference benchmark machine and browser in the
 issue/PR description. Until then, benchmark results are evidence, not a pass/fail
 decision against the provisional 50 ms p95 and 100 ms maximum thresholds.
