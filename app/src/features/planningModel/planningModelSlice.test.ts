@@ -5,6 +5,7 @@ import reducer, {
   type PlanningModelState,
 } from './planningModelSlice'
 import { readAnnualTotal, readResultCell } from './selectors'
+import { PERIOD_IDS } from './types'
 import type { RootState } from '../../app/store'
 import type { FixtureSize } from './types'
 
@@ -27,10 +28,16 @@ describe('fixtureReset', () => {
   it.each([100, 1000, 50_000] as FixtureSize[])('supports the %i-row fixture size', (size) => {
     expect(stateFor(size).rowHandles).toHaveLength(size)
   })
+
+  it('gives each fixture size its own fresh result buffer, sized for its row count', () => {
+    const state = stateFor(100)
+    expect(state.resultValues).toHaveLength(100 * PERIOD_IDS.length)
+    expect(state.resultRevision).toBe(0)
+  })
 })
 
 describe('planLineResultCellChanged', () => {
-  it('changes only the targeted result and leaves account/dimension/other-result data untouched', () => {
+  it('changes only the targeted result and leaves account/dimension/plan-line data untouched', () => {
     const before = stateFor(1000)
     const targetHandle = before.rowHandles[10]
     const targetPlanLineId = targetHandle.id
@@ -39,11 +46,11 @@ describe('planLineResultCellChanged', () => {
     const accountsBefore = before.accounts
     const dimensionValuesBefore = before.dimensionValues
     const planLinesBefore = before.planLines
-    const otherResultsBefore = new Map(
-      otherHandles.map((handle) => {
-        const resultId = before.resultIdByPlanLineId[handle.id]
-        return [handle.id, before.results[resultId]]
-      }),
+    const otherValuesBefore = new Map(
+      otherHandles.map((handle) => [
+        handle.id,
+        PERIOD_IDS.map((periodId) => readResultCell(asRootState(before), handle.id, periodId)),
+      ]),
     )
 
     const after = reducer(
@@ -53,19 +60,38 @@ describe('planLineResultCellChanged', () => {
 
     expect(readResultCell(asRootState(after), targetPlanLineId, 'M03')).toBe(999)
 
-    // Account and dimension collections are untouched by an edit.
+    // Account, dimension, and plan-line collections are untouched by an edit.
     expect(after.accounts).toBe(accountsBefore)
     expect(after.dimensionValues).toBe(dimensionValuesBefore)
     expect(after.planLines).toBe(planLinesBefore)
 
-    // No other plan line's result changed.
+    // No other plan line's result value changed.
     for (const handle of otherHandles) {
-      const resultId = after.resultIdByPlanLineId[handle.id]
-      expect(after.results[resultId]).toBe(otherResultsBefore.get(handle.id))
+      const valuesAfter = PERIOD_IDS.map((periodId) => readResultCell(asRootState(after), handle.id, periodId))
+      expect(valuesAfter).toEqual(otherValuesBefore.get(handle.id))
     }
 
-    // Row handles are untouched by an edit (stable across ordinary edits).
+    // Row handles and the buffer's own identity are untouched by an edit
+    // (PR 5: the Float64Array is mutated in place, never replaced).
     expect(after.rowHandles).toBe(before.rowHandles)
+    expect(after.resultValues).toBe(before.resultValues)
+  })
+
+  it('increments resultRevision on every write, as the immutable value consumers select instead of buffer identity', () => {
+    const before = stateFor(100)
+    const targetPlanLineId = before.rowHandles[0].id
+
+    const after = reducer(
+      before,
+      planLineResultCellChanged({ planLineId: targetPlanLineId, periodId: 'M01', value: 1 }),
+    )
+    expect(after.resultRevision).toBe(before.resultRevision + 1)
+
+    const afterAgain = reducer(
+      after,
+      planLineResultCellChanged({ planLineId: targetPlanLineId, periodId: 'M02', value: 2 }),
+    )
+    expect(afterAgain.resultRevision).toBe(after.resultRevision + 1)
   })
 
   it('derives the annual total from the 12 period values after an edit', () => {
@@ -77,9 +103,8 @@ describe('planLineResultCellChanged', () => {
       planLineResultCellChanged({ planLineId: targetPlanLineId, periodId: 'M01', value: 500 }),
     )
 
-    const resultId = after.resultIdByPlanLineId[targetPlanLineId]
-    const expectedTotal = Object.values(after.results[resultId].reportingPeriodsResultMap).reduce(
-      (sum, value) => sum + value,
+    const expectedTotal = PERIOD_IDS.reduce(
+      (sum, periodId) => sum + (readResultCell(asRootState(after), targetPlanLineId, periodId) ?? 0),
       0,
     )
     expect(readAnnualTotal(asRootState(after), targetPlanLineId)).toBeCloseTo(expectedTotal, 2)
@@ -92,5 +117,6 @@ describe('planLineResultCellChanged', () => {
       planLineResultCellChanged({ planLineId: 'does-not-exist', periodId: 'M01', value: 1 }),
     )
     expect(after).toEqual(before)
+    expect(after.resultRevision).toBe(before.resultRevision)
   })
 })

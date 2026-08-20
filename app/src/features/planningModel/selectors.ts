@@ -1,4 +1,5 @@
 import type { RootState } from '../../app/store'
+import { readAnnualTotal as readAnnualTotalFromBuffer, readCell } from './resultBuffer'
 import { PERIOD_IDS, type DimensionId, type GridRowHandle, type PeriodId } from './types'
 
 // --- Allocation-free cell reads (grid valueGetters) -------------------------
@@ -37,25 +38,22 @@ export function readResultCell(
   planLineId: string,
   periodId: PeriodId,
 ): number | undefined {
-  const resultId = state.planningModel.resultIdByPlanLineId[planLineId]
-  if (!resultId) {
+  const { resultValues, rowByPlanLineId, rowHandles } = state.planningModel
+  const row = rowByPlanLineId[planLineId]
+  if (row === undefined) {
     return undefined
   }
-  return state.planningModel.results[resultId]?.reportingPeriodsResultMap[periodId]
+  return readCell(resultValues, rowHandles.length, row, periodId)
 }
 
 /** Derived from the 12 period values on every read; never stored as a separate source of truth. */
 export function readAnnualTotal(state: RootState, planLineId: string): number {
-  const resultId = state.planningModel.resultIdByPlanLineId[planLineId]
-  const result = resultId ? state.planningModel.results[resultId] : undefined
-  if (!result) {
+  const { resultValues, rowByPlanLineId, rowHandles } = state.planningModel
+  const row = rowByPlanLineId[planLineId]
+  if (row === undefined) {
     return 0
   }
-  let total = 0
-  for (const periodId of PERIOD_IDS) {
-    total += result.reportingPeriodsResultMap[periodId]
-  }
-  return Math.round(total * 100) / 100
+  return readAnnualTotalFromBuffer(resultValues, rowHandles.length, row)
 }
 
 export function selectRowHandles(state: RootState): GridRowHandle[] {
@@ -92,8 +90,11 @@ export function materializePlanLine(
   if (!planLine) {
     return undefined
   }
-  const resultId = state.planningModel.resultIdByPlanLineId[planLineId]
-  const result = resultId ? state.planningModel.results[resultId] : undefined
+
+  const reportingPeriodsResultMap = {} as Record<PeriodId, number>
+  for (const periodId of PERIOD_IDS) {
+    reportingPeriodsResultMap[periodId] = readResultCell(state, planLineId, periodId) ?? 0
+  }
 
   return {
     id: planLine.id,
@@ -101,7 +102,7 @@ export function materializePlanLine(
     accountName: readAccountName(state, planLineId),
     department: readDimensionLabel(state, planLineId, 'department'),
     location: readDimensionLabel(state, planLineId, 'location'),
-    reportingPeriodsResultMap: result ? { ...result.reportingPeriodsResultMap } : ({} as Record<PeriodId, number>),
+    reportingPeriodsResultMap,
     annualTotal: readAnnualTotal(state, planLineId),
   }
 }

@@ -1,0 +1,13 @@
+{
+  "metadata": {
+    "fixtureSize": 50000,
+    "referenceEnvironment": "Apple M1 Pro, 32 GB RAM, macOS 26.5.2 (build 25F84), arm64; Playwright-managed Chromium, production preview build (npm run build && npm run preview)"
+  },
+  "load": {
+    "fixtureSize": 50000,
+    "fixtureGenerationMs": 51,
+    "gridReadyMs": 230.90000000037253,
+    "rowCount": 50000,
+    "stableHandles": true
+  }
+}
