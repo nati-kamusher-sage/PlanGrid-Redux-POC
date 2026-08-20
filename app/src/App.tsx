@@ -2,6 +2,7 @@ import { useSelector } from 'react-redux'
 import type { RootState } from './app/store'
 import { FixtureSizeSelector } from './features/planLines/FixtureSizeSelector'
 import { PlanningGrid } from './features/planLines/PlanningGrid'
+import { InstrumentationPanel } from './instrumentation/InstrumentationPanel'
 
 function App() {
   const fixtureSize = useSelector((state: RootState) => state.planLines.fixtureSize)
@@ -13,6 +14,7 @@ function App() {
         <p>Plan / Version: FY26 Budget (demo)</p>
         <FixtureSizeSelector />
       </header>
+      <InstrumentationPanel />
       <div data-testid="planning-grid" style={{ height: 600, width: '100%' }}>
         <PlanningGrid key={fixtureSize} />
       </div>
