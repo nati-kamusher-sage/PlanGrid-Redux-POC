@@ -1,7 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit'
+import planLinesReducer from '../features/planLines/planLinesSlice'
 
 export const store = configureStore({
-  reducer: {},
+  reducer: {
+    planLines: planLinesReducer,
+  },
 })
 
 export type RootState = ReturnType<typeof store.getState>
