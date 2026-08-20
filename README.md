@@ -26,6 +26,14 @@ series of small pull requests; see the
 The standalone demo app lives in [`app/`](app/). See
 [`app/README.md`](app/README.md) for setup and verification commands.
 
+## How the integration works
+
+[`docs/redux-ag-grid-integration.md`](docs/redux-ag-grid-integration.md)
+walks through the three techniques that keep a cell edit to a single-row AG
+Grid update: normalized Redux state, a one-time (not live) projection from
+Redux into `rowData`, and a bridge that hands the grid a one-row
+`applyTransaction` instead of replacing the dataset.
+
 ## Benchmark result
 
 The POC's final result and recommendation are in
