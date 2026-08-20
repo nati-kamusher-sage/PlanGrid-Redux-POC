@@ -1,0 +1,9 @@
+{
+  "fixtureSize": 50000,
+  "referenceEnvironment": "Apple M1 Pro, 32 GB RAM, macOS 26.5.2 (build 25F84), arm64; Playwright-managed Chromium, production preview build (npm run build && npm run preview)",
+  "editCount": 20,
+  "refreshCallCount": 1,
+  "durationMs": 432.09999999962747,
+  "finalValuesCorrect": true,
+  "distinctRowCount": 5
+}

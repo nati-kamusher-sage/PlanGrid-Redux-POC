@@ -1,27 +1,31 @@
 import { computeSummary } from './summary'
-import type { EditTrace, InstrumentationExport, RunMetadata } from './types'
+import type { BurstTrace, EditTrace, InstrumentationExport, LoadTrace, RunMetadata } from './types'
 
 const buildMode = import.meta.env.MODE
 
-export function buildRunMetadata(fixtureSize: number): RunMetadata {
+export function buildRunMetadata(fixtureSize: number, referenceEnvironment: string): RunMetadata {
   return {
     timestamp: new Date().toISOString(),
     userAgent: navigator.userAgent,
     buildMode,
     agGridVersion: __AG_GRID_VERSION__,
     fixtureSize,
+    referenceEnvironment,
   }
 }
 
 export function buildInstrumentationExport(
   traces: EditTrace[],
   fixtureSize: number,
-  displayedRowCount: number,
-  totalRowCount: number,
+  referenceEnvironment: string,
+  load: LoadTrace | null = null,
+  burst: BurstTrace | null = null,
 ): InstrumentationExport {
   return {
-    metadata: buildRunMetadata(fixtureSize),
-    summary: computeSummary(traces, displayedRowCount, totalRowCount),
+    metadata: buildRunMetadata(fixtureSize, referenceEnvironment),
+    summary: computeSummary(traces),
     traces,
+    load,
+    burst,
   }
 }

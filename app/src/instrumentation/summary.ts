@@ -1,64 +1,52 @@
-import type { AggregateSummary, EditTrace } from './types'
+import type { AggregateSummary, DurationPercentiles, EditTrace } from './types'
 
 function percentile(sortedValues: number[], p: number): number | null {
   if (sortedValues.length === 0) {
     return null
   }
-  const index = Math.min(
-    sortedValues.length - 1,
-    Math.ceil((p / 100) * sortedValues.length) - 1,
-  )
+  const index = Math.min(sortedValues.length - 1, Math.ceil((p / 100) * sortedValues.length) - 1)
   return sortedValues[Math.max(0, index)]
 }
 
-function durationPercentiles(values: number[]): { p50: number | null; p95: number | null } {
+function durationPercentiles(values: number[]): DurationPercentiles {
   const sorted = [...values].sort((a, b) => a - b)
-  return { p50: percentile(sorted, 50), p95: percentile(sorted, 95) }
+  return {
+    p50: percentile(sorted, 50),
+    p95: percentile(sorted, 95),
+    max: sorted.length > 0 ? sorted[sorted.length - 1] : null,
+  }
 }
 
-export function computeSummary(
-  traces: EditTrace[],
-  displayedRowCount: number,
-  totalRowCount: number,
-): AggregateSummary {
+export function computeSummary(traces: EditTrace[]): AggregateSummary {
   const editToPaintValues = traces
     .map((trace) => trace.paint.editToPaintMs)
     .filter((value): value is number => value !== null)
-  const sortedEditToPaint = [...editToPaintValues].sort((a, b) => a - b)
 
-  const gridShellRenderDelta = traces.reduce((delta, trace) => {
-    return delta + (trace.render.gridShellRenderCountAfter - trace.render.gridShellRenderCountBefore)
-  }, 0)
-
-  const totalUpdatedRowIds = traces.reduce((sum, trace) => sum + trace.transaction.rowIds.length, 0)
-  const totalRefreshedCellIds = traces.reduce(
-    (sum, trace) => sum + trace.cellRefresh.refreshedColIds.length,
+  const gridShellRenderDelta = traces.reduce(
+    (delta, trace) => delta + (trace.render.gridShellRenderCountAfter - trace.render.gridShellRenderCountBefore),
     0,
   )
 
   const invariantViolationCount = traces.filter(
     (trace) =>
       !trace.invariants.singleActionDispatched ||
-      !trace.invariants.singleTransactionSingleRow ||
-      !trace.invariants.gridShellRenderCountStable ||
-      !trace.invariants.noUnaffectedRowRefreshed,
+      !trace.invariants.singleNotificationSingleRow ||
+      !trace.invariants.targetedColumnsCorrect ||
+      !trace.invariants.gridShellRenderCountStable,
+  ).length
+
+  const correctnessViolationCount = traces.filter(
+    (trace) => !trace.correctness.resultValueCorrect || !trace.correctness.annualTotalCorrect,
   ).length
 
   return {
     editCount: traces.length,
-    p50EditToPaintMs: percentile(sortedEditToPaint, 50),
-    p95EditToPaintMs: percentile(sortedEditToPaint, 95),
-    maxEditToPaintMs: sortedEditToPaint.length > 0 ? sortedEditToPaint[sortedEditToPaint.length - 1] : null,
-    reducerDurationMs: durationPercentiles(traces.map((trace) => trace.reducer.durationMs)),
-    bridgeDurationMs: durationPercentiles(traces.map((trace) => trace.bridge.durationMs)),
-    transactionDurationMs: durationPercentiles(traces.map((trace) => trace.transaction.durationMs)),
+    syncCpuMs: durationPercentiles(traces.map((trace) => trace.syncCpuMs)),
+    editToPaintMs: durationPercentiles(editToPaintValues),
     gridShellRenderDelta,
-    totalBridgeUpdates: traces.reduce((sum, trace) => sum + trace.bridge.projectedRowCount, 0),
-    totalTransactions: traces.reduce((sum, trace) => sum + trace.transaction.transactionCount, 0),
-    totalUpdatedRowIds,
-    totalRefreshedCellIds,
-    displayedRowCount,
-    totalRowCount,
+    totalNotifications: traces.reduce((sum, trace) => sum + trace.notification.notificationCount, 0),
+    totalRefreshCellsCalls: traces.reduce((sum, trace) => sum + trace.gridRefresh.refreshCellsCallCount, 0),
     invariantViolationCount,
+    correctnessViolationCount,
   }
 }

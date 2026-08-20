@@ -12,20 +12,23 @@ import type { EditTrace } from './types'
 function makeTrace(editId: string): EditTrace {
   return {
     editId,
-    rowId: 'pl-000001',
+    planLineId: 'pl-000001',
+    row: 0,
     periodId: 'M01',
+    scenario: 'visible',
     startTime: 0,
-    reducer: { actionCount: 1, affectedEntityId: 'pl-000001', durationMs: 1 },
-    bridge: { notificationCount: 1, affectedIds: ['pl-000001'], projectedRowCount: 1, durationMs: 1 },
-    transaction: { transactionCount: 1, updateLength: 1, rowIds: ['pl-000001'], durationMs: 1 },
-    cellRefresh: { refreshedRowIds: ['pl-000001'], refreshedColIds: ['M01'], derivedFromCellRendererProbe: true },
+    reducer: { actionCount: 1, durationMs: 0.1 },
+    notification: { notificationCount: 1, row: 0, columns: ['M01', 'annualTotal'], durationMs: 0.1 },
+    gridRefresh: { refreshCellsCallCount: 1, rowNodeCount: 1, columns: ['M01', 'annualTotal'], durationMs: 0.2 },
+    syncCpuMs: 0.5,
     render: { gridShellRenderCountBefore: 0, gridShellRenderCountAfter: 0 },
     paint: { editToPaintMs: 5 },
+    correctness: { resultValueCorrect: true, annualTotalCorrect: true },
     invariants: {
       singleActionDispatched: true,
-      singleTransactionSingleRow: true,
+      singleNotificationSingleRow: true,
+      targetedColumnsCorrect: true,
       gridShellRenderCountStable: true,
-      noUnaffectedRowRefreshed: true,
     },
   }
 }

@@ -10,6 +10,21 @@ declare global {
     >
     __getGridShellRenderCount__: () => number
     __batchChangedRowNotifications__: (work: () => void) => void
+    __commitAndRecordInstrumentedEdit__: (
+      params: Omit<
+        import('./instrumentation/instrumentedCommit').CommitPlanLineResultCellParams,
+        'dispatch' | 'getState' | 'gridApi'
+      >,
+    ) => Promise<import('./instrumentation/types').EditTrace>
+    __getTraces__: () => import('./instrumentation/types').EditTrace[]
+    __resetTraces__: () => void
+    __buildInstrumentationExport__: (
+      traces: import('./instrumentation/types').EditTrace[],
+      fixtureSize: number,
+      referenceEnvironment: string,
+      load?: import('./instrumentation/types').LoadTrace | null,
+      burst?: import('./instrumentation/types').BurstTrace | null,
+    ) => import('./instrumentation/types').InstrumentationExport
   }
 }
 
