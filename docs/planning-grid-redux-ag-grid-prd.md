@@ -268,3 +268,92 @@ review before starting a production migration based on this POC.
 - Confirm the demo's home (a small standalone app versus a route within the
   frontend app) based on the preferred test/build harness. This does not change
   the required behavior or instrumentation.
+
+## 13. Phase 2 contract — 50,000-row model and performance targets
+
+This section records the decisions required before Phase 2 implementation
+begins, per the [Phase 2 implementation plan](phase-2-implementation-plan.md)
+and the questions raised in [demo preview results](demo%20preview%20results.md).
+It supersedes §6.1's 1,000-row fixture shape and §8.3's single edit-to-paint
+threshold for all Phase 2 work; §§1-12 above describe the completed 1,000-row
+POC and are otherwise unchanged.
+
+### 13.1 Result contract
+
+The source result is XPNA's `PlanLineResult`
+(`xpna/_shared/types/src/types.ts`):
+
+```ts
+type PlanLineResult = Entity & {
+  planLineId: string
+  reportingPeriodsResultMap: KeyAmountMap // Record<string, number>
+}
+```
+
+The fixture keeps the current 12 monthly reporting-period keys, `M01`–`M12`
+(`app/src/features/planLines/types.ts`), as the keys of
+`reportingPeriodsResultMap`. The annual total remains derived from the 12
+values; it is never a key in the map or an independently editable source.
+
+A plan line's identity and dimensions follow XPNA's `GlPlanLine`:
+
+```ts
+type GlPlanLine = BasePlanLine & { glAccountKey: Pick<GlAccount, 'key'> }
+// BasePlanLine = Entity & { dimensions: Dimensions }
+```
+
+The fixture's `PlanLine` record therefore holds `id`, `glAccountKey`, and a
+`dimensions` map of dimension-id to dimension-value key — never account name,
+dimension labels, or period amounts. Account and dimension display data live
+in separate lookup collections keyed by `glAccountKey` / dimension value key;
+`PlanLineResult` is a separate collection keyed by `planLineId`.
+
+### 13.2 Grid dimensions
+
+The grid keeps the two dimension categories already in the POC —
+`department` and `location` — represented as entries in `PlanLine.dimensions`
+(dimension IDs `department` and `location`) rather than as plan-line fields.
+Account is represented by `glAccountKey`, resolved against the accounts
+lookup collection for the account-code/name columns. No additional dimension
+categories are in scope for Phase 2.
+
+### 13.3 Performance contract
+
+The single edit-to-paint budget in §8.3 does not apply to Phase 2. Phase 2
+tracks two separate metrics instead:
+
+| Metric | Meaning | Target |
+| --- | --- | --- |
+| Synchronous edit CPU | p95, action start through targeted grid API completion (reducer + `applyTransaction`/`refreshCells`), measured after warm-up on the agreed reference device/browser, at 50,000 rows | p95 < 1 ms |
+| Edit-to-paint | action start through a defined displayed frame (frame-aware; not required to be under 1 ms) | record p50/p95/max, no fixed threshold |
+| Loading | fixture reset/start through grid ready, at 50,000 rows | record first; set a threshold only after review |
+
+The synchronous edit CPU target applies only to an ordinary single-cell edit.
+A bulk or cascade update (paste, formula, or multi-row calculation) is a
+separate, documented scope: it may coalesce work to an animation-frame
+boundary and refresh a defined rendered column family, and is not held to
+the same per-edit p95. It must still never diff the full 50,000-row result
+collection to discover what changed; the actions dispatching bulk changes
+must name their affected rows/columns directly, same as an ordinary edit.
+
+If the reference device/browser is not yet agreed, record hardware/browser
+alongside the raw measurement and report without declaring pass/fail, as in
+§8.3.
+
+### 13.4 Typed-buffer policy
+
+**Rejected for the initial 50,000-row implementation.** PR 2 through PR 4 use
+conventional immutable, serializable per-result Redux objects
+(`Record<PlanLineId, PlanLineResult>` or equivalent), keeping normal Redux
+DevTools time-travel and change detection.
+
+Ophir's mutable `Float64Array(50_000 * 12)` result buffer
+(`ag-grid-test`) is accepted only conditionally, as PR 5, and only if the
+50,000-row immutable-result benchmark (PR 6) misses the synchronous edit CPU
+budget in §13.3. Adopting it requires an explicit design-review decision
+that accepts its tradeoffs: revision-counter-based change observation instead
+of object identity, Redux DevTools/time-travel no longer showing individual
+result values, and store middleware that excludes the buffer from
+serializability/immutability checks. The public result read/write API stays
+the same across both storage implementations so adopting the buffer replaces
+storage only, not the grid integration from PR 3/PR 4.
