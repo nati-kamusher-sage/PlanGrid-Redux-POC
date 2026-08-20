@@ -1,5 +1,5 @@
-import type { ColDef, ValueGetterParams, ValueSetterParams } from 'ag-grid-community'
-import { planLineResultCellChanged } from './planningModelSlice'
+import type { ColDef, GridApi, ValueGetterParams, ValueSetterParams } from 'ag-grid-community'
+import { commitAndRecordInstrumentedEdit } from '../../instrumentation/instrumentedCommit'
 import {
   readAccountName,
   readAnnualTotal,
@@ -21,6 +21,7 @@ function formatCurrency(value: unknown): string {
 export interface GridColumnDeps {
   getState: () => RootState
   dispatch: AppDispatch
+  getGridApi: () => GridApi<GridRowHandle> | null
 }
 
 function buildPeriodColumn(periodId: PeriodId, deps: GridColumnDeps): ColDef<GridRowHandle> {
@@ -35,8 +36,14 @@ function buildPeriodColumn(periodId: PeriodId, deps: GridColumnDeps): ColDef<Gri
     // Reads the canonical result on demand; the row handle never stores it.
     valueGetter: (params: ValueGetterParams<GridRowHandle>) =>
       params.data ? readResultCell(deps.getState(), params.data.id, periodId) : undefined,
-    // Validates and dispatches the domain action; AG Grid's row object is
-    // never treated as the source of truth for the edited value.
+    // Validates and commits the domain action through the same
+    // instrumented path the PR 6 benchmark harness uses: the dispatch,
+    // changed-row notification, and targeted refreshCells all happen
+    // synchronously before this returns (PRD §7's "negligible effect on
+    // the normal edit path" -- the wrapper's own overhead is a closure and
+    // a couple of extra calls, small next to dispatch()'s own cost). Only
+    // the edit-to-paint measurement and trace recording are deferred to
+    // the next two animation frames.
     valueSetter: (params: ValueSetterParams<GridRowHandle>) => {
       if (!params.data) {
         return false
@@ -45,9 +52,24 @@ function buildPeriodColumn(periodId: PeriodId, deps: GridColumnDeps): ColDef<Gri
       if (!Number.isFinite(value)) {
         return false
       }
-      deps.dispatch(
-        planLineResultCellChanged({ planLineId: params.data.id, periodId, value }),
-      )
+      const gridApi = deps.getGridApi()
+      if (!gridApi) {
+        return false
+      }
+      const row = deps.getState().planningModel.rowByPlanLineId[params.data.id]
+      if (row === undefined) {
+        return false
+      }
+      void commitAndRecordInstrumentedEdit({
+        planLineId: params.data.id,
+        row,
+        periodId,
+        value,
+        scenario: 'live',
+        dispatch: deps.dispatch,
+        getState: deps.getState,
+        gridApi,
+      })
       return true
     },
   }
@@ -95,9 +117,9 @@ export function buildColumnDefs(deps: GridColumnDeps): ColDef<GridRowHandle>[] {
       type: 'numericColumn',
       width: 120,
       pinned: 'right',
-      // Derived from the 12 period values on every read; PR 4 adds the
-      // targeted refresh that repaints this cell after an edit to another
-      // column on the same row.
+      // Derived from the 12 period values on every read; the changed-row
+      // notification (resultMutationMiddleware.ts) targets this column for
+      // refresh after an edit to another column on the same row.
       valueGetter: (params: ValueGetterParams<GridRowHandle>) =>
         params.data ? readAnnualTotal(deps.getState(), params.data.id) : undefined,
     },
