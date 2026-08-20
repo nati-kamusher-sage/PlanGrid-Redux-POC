@@ -122,8 +122,19 @@ export async function getInstrumentationExport(
   )
 }
 
+/**
+ * Writes to docs/benchmark-results/phase-2/, or to a named subdirectory of
+ * it when BENCHMARK_OUTPUT_SUBDIR is set -- used to capture a comparison
+ * run (e.g. PR 5's typed-buffer storage) alongside the default run's
+ * committed baseline without overwriting it.
+ */
 export function persistBenchmarkResult(fileName: string, payload: unknown): void {
-  const outDir = path.resolve(currentDir, '../../../../docs/benchmark-results/phase-2')
+  const subdir = process.env.BENCHMARK_OUTPUT_SUBDIR
+  const outDir = path.resolve(
+    currentDir,
+    '../../../../docs/benchmark-results/phase-2',
+    ...(subdir ? [subdir] : []),
+  )
   fs.mkdirSync(outDir, { recursive: true })
   fs.writeFileSync(path.join(outDir, fileName), JSON.stringify(payload, null, 2))
 }

@@ -3,6 +3,8 @@ import { afterEach, describe, expect, it } from 'vitest'
 import { resetChangedRowNotifierForTest, subscribeToChangedRows } from '../features/planningModel/changedRowNotifier'
 import { resultMutationMiddleware } from '../features/planningModel/resultMutationMiddleware'
 import planningModelReducer, { fixtureReset } from '../features/planningModel/planningModelSlice'
+import { readResultCell } from '../features/planningModel/selectors'
+import { PERIOD_IDS } from '../features/planningModel/types'
 import { commitInstrumentedPlanLineResultCellEdit } from './instrumentedCommit'
 import { resetTraces } from './traceStore'
 
@@ -52,10 +54,11 @@ describe('commitInstrumentedPlanLineResultCellEdit', () => {
     const store = makeStore()
     const target = store.getState().planningModel.rowHandles[5]
     const state = store.getState()
-    const resultId = state.planningModel.resultIdByPlanLineId[target.id]
-    const before = state.planningModel.results[resultId].reportingPeriodsResultMap
-    const expectedTotal =
-      Object.entries(before).reduce((sum, [period, v]) => sum + (period === 'M02' ? 250 : v), 0)
+    const expectedTotal = PERIOD_IDS.reduce(
+      (sum, periodId) =>
+        sum + (periodId === 'M02' ? 250 : (readResultCell(state, target.id, periodId) ?? 0)),
+      0,
+    )
 
     const { gridApi } = makeFakeGridApi({ [target.id]: Math.round(expectedTotal * 100) / 100 })
 

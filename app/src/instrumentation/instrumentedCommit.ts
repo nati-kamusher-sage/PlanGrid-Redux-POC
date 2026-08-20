@@ -2,7 +2,8 @@ import type { GridApi } from 'ag-grid-community'
 import type { AppDispatch, RootState } from '../app/store'
 import { subscribeToChangedRows, type ChangedRow } from '../features/planningModel/changedRowNotifier'
 import { planLineResultCellChanged } from '../features/planningModel/planningModelSlice'
-import { PERIOD_IDS, type GridRowHandle, type PeriodId } from '../features/planningModel/types'
+import { readAnnualTotal, readResultCell } from '../features/planningModel/selectors'
+import type { GridRowHandle, PeriodId } from '../features/planningModel/types'
 import { getGridShellRenderCount, recordTrace } from './traceStore'
 import type { EditTrace } from './types'
 
@@ -91,18 +92,12 @@ export function commitInstrumentedPlanLineResultCellEdit(
   const gridShellRenderCountAfter = getGridShellRenderCount()
 
   const state = getState()
-  const resultId = state.planningModel.resultIdByPlanLineId[planLineId]
-  const result = resultId ? state.planningModel.results[resultId] : undefined
-  const resultValueCorrect = result?.reportingPeriodsResultMap[periodId] === value
+  const resultValueCorrect = readResultCell(state, planLineId, periodId) === value
 
-  let expectedAnnualTotal = 0
-  for (const id of PERIOD_IDS) {
-    expectedAnnualTotal += result?.reportingPeriodsResultMap[id] ?? 0
-  }
-  expectedAnnualTotal = Math.round(expectedAnnualTotal * 100) / 100
+  const expectedAnnualTotal = readAnnualTotal(state, planLineId)
   const rowNode = gridApi.getRowNode(planLineId)
   const renderedAnnualTotal = rowNode ? gridApi.getCellValue({ rowNode, colKey: 'annualTotal' }) : undefined
-  const annualTotalCorrect = result !== undefined && renderedAnnualTotal === expectedAnnualTotal
+  const annualTotalCorrect = renderedAnnualTotal === expectedAnnualTotal
 
   const trace: EditTrace = {
     editId,

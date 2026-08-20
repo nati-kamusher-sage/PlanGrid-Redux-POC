@@ -1,0 +1,55 @@
+{
+  "fixtureSize": 50000,
+  "referenceEnvironment": "Apple M1 Pro, 32 GB RAM, macOS 26.5.2 (build 25F84), arm64; Playwright-managed Chromium, production preview build (npm run build && npm run preview)",
+  "offscreenRowIndex": 40000,
+  "trace": {
+    "editId": "edit-1",
+    "planLineId": "pl-040001",
+    "row": 40000,
+    "periodId": "M07",
+    "scenario": "off-screen",
+    "startTime": 430,
+    "reducer": {
+      "actionCount": 1,
+      "durationMs": 1.799999998882413
+    },
+    "notification": {
+      "notificationCount": 1,
+      "row": 40000,
+      "columns": [
+        "M07",
+        "annualTotal"
+      ],
+      "durationMs": 0
+    },
+    "gridRefresh": {
+      "refreshCellsCallCount": 1,
+      "rowNodeCount": 1,
+      "columns": [
+        "M07",
+        "annualTotal"
+      ],
+      "durationMs": 0.30000000074505806
+    },
+    "syncCpuMs": 2.099999999627471,
+    "render": {
+      "gridShellRenderCountBefore": 2,
+      "gridShellRenderCountAfter": 2
+    },
+    "paint": {
+      "editToPaintMs": 5.099999999627471
+    },
+    "correctness": {
+      "resultValueCorrect": true,
+      "annualTotalCorrect": true
+    },
+    "invariants": {
+      "singleActionDispatched": true,
+      "singleNotificationSingleRow": true,
+      "targetedColumnsCorrect": true,
+      "gridShellRenderCountStable": true
+    }
+  },
+  "noUnrelatedVisibleRefresh": true,
+  "revealedValueCorrect": true
+}

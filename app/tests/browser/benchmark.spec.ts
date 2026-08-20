@@ -196,9 +196,11 @@ test('burst at 50,000 rows: a defined number of same/different-row edits coalesc
       const finalValuesCorrect = targetRows.every((rowIndex) => {
         const node = window.__gridApi__.getDisplayedRowAtIndex(rowIndex)
         if (!node?.data) return false
-        const resultId = window.__store__.getState().planningModel.resultIdByPlanLineId[node.data.id]
-        const value = window.__store__.getState().planningModel.results[resultId]?.reportingPeriodsResultMap.M08
-        return typeof value === 'number'
+        const state = window.__store__.getState().planningModel
+        const row = state.rowByPlanLineId[node.data.id]
+        const periodIndex = 7 // M08
+        const value = state.resultValues[row * 12 + periodIndex]
+        return typeof value === 'number' && value >= 200 && value < 200 + editCount
       })
 
       return { refreshCallCount, durationMs, finalValuesCorrect, distinctRowCount }

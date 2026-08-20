@@ -1,14 +1,7 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
 import { createPlanningModelFixtureWithTiming } from './fixtures'
-import type {
-  Account,
-  DimensionValue,
-  FixtureSize,
-  GridRowHandle,
-  PeriodId,
-  PlanLine,
-  PlanLineResult,
-} from './types'
+import { createResultBuffer, writeCell } from './resultBuffer'
+import type { Account, DimensionValue, FixtureSize, GridRowHandle, PeriodId, PlanLine } from './types'
 
 const DEFAULT_FIXTURE_SIZE: FixtureSize = 1000
 
@@ -19,10 +12,16 @@ export interface PlanningModelState {
   dimensionValues: Record<string, DimensionValue>
   dimensionValueIds: string[]
   planLines: Record<string, PlanLine>
-  results: Record<string, PlanLineResult>
+  /**
+   * Hot result storage (Phase 2 plan PR 5): Float64Array(rowCount * 12),
+   * see resultBuffer.ts. Mutated in place by writeCell; its reference never
+   * changes for a given fixture. `resultRevision` is the ordinary immutable
+   * counter to select instead, incremented on every write.
+   */
+  resultValues: Float64Array
+  resultRevision: number
   rowHandles: GridRowHandle[]
   rowByPlanLineId: Record<string, number>
-  resultIdByPlanLineId: Record<string, string>
   lastGenerationDurationMs: number
 }
 
@@ -49,11 +48,6 @@ function buildState(fixtureSize: FixtureSize): PlanningModelState {
     planLines[line.id] = line
   }
 
-  const results: Record<string, PlanLineResult> = {}
-  for (const result of fixture.results) {
-    results[result.id] = result
-  }
-
   return {
     fixtureSize,
     accounts,
@@ -61,10 +55,10 @@ function buildState(fixtureSize: FixtureSize): PlanningModelState {
     dimensionValues,
     dimensionValueIds,
     planLines,
-    results,
+    resultValues: createResultBuffer(fixture.results, fixture.rowByPlanLineId),
+    resultRevision: 0,
     rowHandles: fixture.rowHandles,
     rowByPlanLineId: fixture.rowByPlanLineId,
-    resultIdByPlanLineId: fixture.resultIdByPlanLineId,
     lastGenerationDurationMs: fixture.generationDurationMs,
   }
 }
@@ -83,12 +77,16 @@ const planningModelSlice = createSlice({
   reducers: {
     planLineResultCellChanged(state, action: PayloadAction<PlanLineResultCellChangedPayload>) {
       const { planLineId, periodId, value } = action.payload
-      const resultId = state.resultIdByPlanLineId[planLineId]
-      const result = resultId ? state.results[resultId] : undefined
-      if (!result) {
+      const row = state.rowByPlanLineId[planLineId]
+      if (row === undefined) {
         return
       }
-      result.reportingPeriodsResultMap[periodId] = value
+      // state.resultValues is the mutable Float64Array from resultBuffer.ts,
+      // written in place -- Immer never drafts it (see store.ts's
+      // immutableCheck/serializableCheck ignoredPaths). Only resultRevision
+      // is an ordinary immutable value a selector can observe changing.
+      writeCell(state.resultValues, state.rowHandles.length, row, periodId, value)
+      state.resultRevision += 1
     },
     fixtureReset(_state, action: PayloadAction<{ size: FixtureSize }>) {
       return buildState(action.payload.size)
