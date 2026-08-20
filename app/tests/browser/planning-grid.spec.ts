@@ -25,17 +25,15 @@ test('grid becomes ready with 1,000 rows and the intended columns', async ({ pag
 
   await expect(grid.locator('.ag-header-cell-text')).toContainText([
     'Row ID',
-    'Account Code',
-    'Account Name',
+    'Account',
     'Department',
     'Location',
-    'Type',
     'M01',
     'M02',
   ])
 
   await expect(cell(page, 'id')).toHaveText('pl-000001')
-  await expect(cell(page, 'accountCode')).toHaveText('4000')
+  await expect(cell(page, 'account')).toHaveText('4000 Advertising')
   await expect(cell(page, 'M01')).toHaveText('44.12')
 
   await scrollGridFullyRight(page)

@@ -24,11 +24,15 @@ export function buildColumnDefs(): ColDef<PlanLine>[] {
 
   return [
     { colId: 'id', headerName: 'Row ID', field: 'id', pinned: 'left', width: 110 },
-    { colId: 'accountCode', headerName: 'Account Code', field: 'accountCode', width: 120 },
-    { colId: 'accountName', headerName: 'Account Name', field: 'accountName', width: 160 },
+    {
+      colId: 'account',
+      headerName: 'Account',
+      valueGetter: (params) =>
+        params.data ? `${params.data.accountCode} ${params.data.accountName}` : '',
+      width: 220,
+    },
     { colId: 'department', headerName: 'Department', field: 'department', width: 130 },
     { colId: 'location', headerName: 'Location', field: 'location', width: 100 },
-    { colId: 'type', headerName: 'Type', field: 'type', width: 90 },
     ...monthColumns,
     {
       colId: 'annualTotal',
