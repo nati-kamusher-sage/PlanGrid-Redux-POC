@@ -23,8 +23,19 @@ series of small pull requests; see the
 
 ## App
 
-The standalone demo app lives in [`app/`](app/). See
-[`app/README.md`](app/README.md) for setup and verification commands.
+The standalone demo app lives in [`app/`](app/).
+
+### Run it locally
+
+```sh
+cd app
+npm install
+npm run dev
+```
+
+Then open the URL Vite prints (typically <http://localhost:5173>) in a
+browser to see the Planning Grid. See [`app/README.md`](app/README.md) for
+the full command reference (production build, browser tests, etc.).
 
 ## How the integration works
 
