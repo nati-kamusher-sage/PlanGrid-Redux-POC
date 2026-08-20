@@ -2,9 +2,12 @@ import { configureStore } from '@reduxjs/toolkit'
 import { describe, expect, it, vi } from 'vitest'
 import { commitPlanLineCellEdit, parseMonthlyValueField } from './gridBridge'
 import planLinesReducer, { fixtureReset } from './planLinesSlice'
+import planningModelReducer from '../planningModel/planningModelSlice'
 
 function makeStore() {
-  const store = configureStore({ reducer: { planLines: planLinesReducer } })
+  const store = configureStore({
+    reducer: { planLines: planLinesReducer, planningModel: planningModelReducer },
+  })
   store.dispatch(fixtureReset({ size: 100 }))
   return store
 }
