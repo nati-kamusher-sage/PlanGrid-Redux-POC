@@ -8,9 +8,10 @@ import { AgGridReact } from 'ag-grid-react'
 import { useCallback, useMemo, useRef } from 'react'
 import { useDispatch, useStore } from 'react-redux'
 import type { AppDispatch, RootState } from '../../app/store'
+import { instrumentedCommitPlanLineCellEdit, recordGridShellRender } from '../../instrumentation/instrumentedCommit'
 import './agGridSetup'
 import { planningGridTheme } from './agGridSetup'
-import { commitPlanLineCellEdit, parseMonthlyValueField } from './gridBridge'
+import { parseMonthlyValueField } from './gridBridge'
 import { DEFAULT_COL_DEF, buildColumnDefs } from './gridColumns'
 import { projectPlanLineForGrid } from './projectRow'
 import type { PlanLine } from './types'
@@ -20,6 +21,8 @@ function getRowId(params: GetRowIdParams<PlanLine>): string {
 }
 
 export function PlanningGrid() {
+  recordGridShellRender()
+
   const store = useStore<RootState>()
   const dispatch = useDispatch<AppDispatch>()
   const gridApiRef = useRef<GridApi<PlanLine> | null>(null)
@@ -51,7 +54,7 @@ export function PlanningGrid() {
         return
       }
 
-      commitPlanLineCellEdit({
+      instrumentedCommitPlanLineCellEdit({
         rowId: event.data.id,
         periodId,
         value,

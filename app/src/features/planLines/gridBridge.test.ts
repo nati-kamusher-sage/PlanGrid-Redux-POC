@@ -88,6 +88,34 @@ describe('commitPlanLineCellEdit', () => {
     }).not.toThrow()
   })
 
+  it('returns timing/count facts derived from what actually happened', () => {
+    const store = makeStore()
+    const targetId = store.getState().planLines.ids[2]
+    const applyTransaction = vi.fn().mockImplementation((transaction) => ({
+      add: [],
+      remove: [],
+      update: transaction.update.map((data: { id: string }) => ({ data })),
+    }))
+    const gridApi = { applyTransaction } as unknown as Parameters<
+      typeof commitPlanLineCellEdit
+    >[0]['gridApi']
+
+    const result = commitPlanLineCellEdit({
+      rowId: targetId,
+      periodId: 'M06',
+      value: 42,
+      dispatch: store.dispatch,
+      getState: store.getState,
+      gridApi,
+    })
+
+    expect(result.transactionCount).toBe(1)
+    expect(result.updatedRowIds).toEqual([targetId])
+    expect(result.reducerDurationMs).toBeGreaterThanOrEqual(0)
+    expect(result.bridgeDurationMs).toBeGreaterThanOrEqual(0)
+    expect(result.transactionDurationMs).toBeGreaterThanOrEqual(0)
+  })
+
   it('does not touch the grid when the row ID is unknown', () => {
     const store = makeStore()
     const applyTransaction = vi.fn()
@@ -95,7 +123,7 @@ describe('commitPlanLineCellEdit', () => {
       typeof commitPlanLineCellEdit
     >[0]['gridApi']
 
-    commitPlanLineCellEdit({
+    const result = commitPlanLineCellEdit({
       rowId: 'does-not-exist',
       periodId: 'M01',
       value: 1,
@@ -105,5 +133,7 @@ describe('commitPlanLineCellEdit', () => {
     })
 
     expect(applyTransaction).not.toHaveBeenCalled()
+    expect(result.transactionCount).toBe(0)
+    expect(result.updatedRowIds).toEqual([])
   })
 })
