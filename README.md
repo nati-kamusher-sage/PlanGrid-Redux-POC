@@ -17,4 +17,15 @@ production Planning Grid or an ECP-1 implementation.
 ## Product requirements
 
 The detailed requirements and acceptance criteria are in
-[the POC PRD](docs/planning-grid-redux-ag-grid-prd.md).
+[the POC PRD](docs/planning-grid-redux-ag-grid-prd.md). Delivery is sequenced as a
+series of small pull requests; see the
+[implementation plan](docs/implementation-plan.md).
+
+## App
+
+The standalone demo app lives in [`app/`](app/). See
+[`app/README.md`](app/README.md) for setup and verification commands.
+
+Before benchmark results are treated as a pass/fail decision (PR 6/7 in the
+implementation plan), the reference benchmark machine and browser must be agreed
+and recorded, per the PRD's open decisions.
