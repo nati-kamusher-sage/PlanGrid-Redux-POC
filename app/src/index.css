@@ -1,6 +1,17 @@
 :root {
   color-scheme: light dark;
   font: 14px/1.4 system-ui, 'Segoe UI', Roboto, sans-serif;
+  --border: #d9dce1;
+  --text-muted: #5b6472;
+  --surface: #f6f7f9;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --border: #3a3f47;
+    --text-muted: #9aa3af;
+    --surface: #22252b;
+  }
 }
 
 * {
