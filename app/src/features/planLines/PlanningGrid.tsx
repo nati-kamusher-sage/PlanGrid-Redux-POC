@@ -1,10 +1,16 @@
-import type { GetRowIdParams, GridApi, GridReadyEvent } from 'ag-grid-community'
+import type {
+  CellValueChangedEvent,
+  GetRowIdParams,
+  GridApi,
+  GridReadyEvent,
+} from 'ag-grid-community'
 import { AgGridReact } from 'ag-grid-react'
 import { useCallback, useMemo, useRef } from 'react'
-import { useStore } from 'react-redux'
-import type { RootState } from '../../app/store'
+import { useDispatch, useStore } from 'react-redux'
+import type { AppDispatch, RootState } from '../../app/store'
 import './agGridSetup'
 import { planningGridTheme } from './agGridSetup'
+import { commitPlanLineCellEdit, parseMonthlyValueField } from './gridBridge'
 import { DEFAULT_COL_DEF, buildColumnDefs } from './gridColumns'
 import { projectPlanLineForGrid } from './projectRow'
 import type { PlanLine } from './types'
@@ -15,6 +21,7 @@ function getRowId(params: GetRowIdParams<PlanLine>): string {
 
 export function PlanningGrid() {
   const store = useStore<RootState>()
+  const dispatch = useDispatch<AppDispatch>()
   const gridApiRef = useRef<GridApi<PlanLine> | null>(null)
 
   const columnDefs = useMemo(() => buildColumnDefs(), [])
@@ -31,6 +38,31 @@ export function PlanningGrid() {
     gridApiRef.current = event.api
   }, [])
 
+  const onCellValueChanged = useCallback(
+    (event: CellValueChangedEvent<PlanLine>) => {
+      const periodId = parseMonthlyValueField(event.colDef.field)
+      const gridApi = gridApiRef.current
+      if (!periodId || !gridApi) {
+        return
+      }
+
+      const value = Number(event.newValue)
+      if (!Number.isFinite(value)) {
+        return
+      }
+
+      commitPlanLineCellEdit({
+        rowId: event.data.id,
+        periodId,
+        value,
+        dispatch,
+        getState: store.getState,
+        gridApi,
+      })
+    },
+    [dispatch, store],
+  )
+
   return (
     <AgGridReact<PlanLine>
       theme={planningGridTheme}
@@ -39,6 +71,7 @@ export function PlanningGrid() {
       defaultColDef={DEFAULT_COL_DEF}
       getRowId={getRowId}
       onGridReady={onGridReady}
+      onCellValueChanged={onCellValueChanged}
     />
   )
 }
