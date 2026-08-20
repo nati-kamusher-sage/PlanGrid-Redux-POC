@@ -19,16 +19,16 @@ export function buildColumnDefs(): ColDef<PlanLine>[] {
     cellEditor: 'agNumberCellEditor',
     valueFormatter: (params) => formatCurrency(params.value as number),
     type: 'numericColumn',
-    width: 100,
+    width: 90,
   }))
 
   return [
-    { colId: 'id', headerName: 'Row ID', field: 'id', pinned: 'left', width: 120 },
-    { colId: 'accountCode', headerName: 'Account Code', field: 'accountCode', width: 130 },
-    { colId: 'accountName', headerName: 'Account Name', field: 'accountName', width: 170 },
-    { colId: 'department', headerName: 'Department', field: 'department', width: 140 },
-    { colId: 'location', headerName: 'Location', field: 'location', width: 110 },
-    { colId: 'type', headerName: 'Type', field: 'type', width: 100 },
+    { colId: 'id', headerName: 'Row ID', field: 'id', pinned: 'left', width: 110 },
+    { colId: 'accountCode', headerName: 'Account Code', field: 'accountCode', width: 120 },
+    { colId: 'accountName', headerName: 'Account Name', field: 'accountName', width: 160 },
+    { colId: 'department', headerName: 'Department', field: 'department', width: 130 },
+    { colId: 'location', headerName: 'Location', field: 'location', width: 100 },
+    { colId: 'type', headerName: 'Type', field: 'type', width: 90 },
     ...monthColumns,
     {
       colId: 'annualTotal',
@@ -37,7 +37,8 @@ export function buildColumnDefs(): ColDef<PlanLine>[] {
       editable: false,
       valueFormatter: (params) => formatCurrency(params.value as number),
       type: 'numericColumn',
-      width: 130,
+      width: 120,
+      pinned: 'right',
     },
   ]
 }
