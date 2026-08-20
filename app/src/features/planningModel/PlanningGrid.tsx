@@ -1,6 +1,6 @@
 import type { GetRowIdParams, GridApi, GridReadyEvent } from 'ag-grid-community'
 import { AgGridReact } from 'ag-grid-react'
-import { useEffect, useMemo, useRef } from 'react'
+import { useCallback, useEffect, useMemo, useRef } from 'react'
 import { useDispatch, useStore } from 'react-redux'
 import type { AppDispatch, RootState } from '../../app/store'
 import { noteGridShellRender } from '../../instrumentation/traceStore'
@@ -50,9 +50,11 @@ export function PlanningGrid() {
   const dispatch = useDispatch<AppDispatch>()
   const gridApiRef = useRef<GridApi<GridRowHandle> | null>(null)
 
+  const getGridApi = useCallback(() => gridApiRef.current, [])
+
   const columnDefs = useMemo(
-    () => buildColumnDefs({ getState: store.getState, dispatch }),
-    [store, dispatch],
+    () => buildColumnDefs({ getState: store.getState, dispatch, getGridApi }),
+    [store, dispatch, getGridApi],
   )
 
   // Built once per mount (the store instance is stable for the component's

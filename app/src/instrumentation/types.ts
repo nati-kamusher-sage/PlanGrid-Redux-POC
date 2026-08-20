@@ -12,7 +12,8 @@ export interface EditTrace {
   planLineId: string
   row: number
   periodId: string
-  scenario: 'visible' | 'later-viewport' | 'off-screen'
+  /** 'live' is a real on-screen edit typed into the running app; the other three are PR 6 benchmark-harness labels. */
+  scenario: 'visible' | 'later-viewport' | 'off-screen' | 'live'
   startTime: number
   reducer: {
     actionCount: number
