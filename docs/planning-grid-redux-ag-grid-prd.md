@@ -357,3 +357,9 @@ result values, and store middleware that excludes the buffer from
 serializability/immutability checks. The public result read/write API stays
 the same across both storage implementations so adopting the buffer replaces
 storage only, not the grid integration from PR 3/PR 4.
+
+The PR 6 benchmark missed the §13.3 budget on the immutable model (p95
+~20–23 ms at 50,000 rows), so PR 5's typed buffer was built and measured
+under this conditional policy. The resulting recommendation, full metrics,
+and the tradeoffs above as accepted/open items are published in the [Phase 2
+decision record](benchmark-results/phase-2/decision-record.md).
