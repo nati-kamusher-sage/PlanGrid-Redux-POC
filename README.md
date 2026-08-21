@@ -34,8 +34,25 @@ npm run dev
 ```
 
 Then open the URL Vite prints (typically <http://localhost:5173>) in a
-browser to see the Planning Grid. See [`app/README.md`](app/README.md) for
-the full command reference (production build, browser tests, etc.).
+browser to see the Planning Grid.
+
+**Do not use the dev server to judge performance.** The instrumentation
+panel's sync-CPU and edit-to-paint numbers are only meaningful against a
+production build — dev mode leaves React in development mode and keeps
+Redux Toolkit's `immutableCheck`/`serializableCheck` active, which alone
+accounts for roughly a 10x inflation over production numbers at 50,000 rows.
+To see representative timings:
+
+```sh
+npm run build
+npm run preview
+```
+
+then open the printed preview URL. Every benchmark number in
+[`docs/benchmark-results/`](docs/benchmark-results/) was captured this way
+(`npm run test:browser`, which builds and serves production automatically —
+see below). See [`app/README.md`](app/README.md) for the full command
+reference.
 
 ## How the integration works
 
