@@ -7,6 +7,7 @@ import { getTraces, resetTraces, subscribe } from './traceStore'
 import type { InstrumentationExport } from './types'
 
 const LIVE_REFERENCE_ENVIRONMENT = 'live session (not a benchmark-harness run)'
+const IS_DEV_BUILD = import.meta.env.MODE !== 'production'
 
 function formatMs(value: number | null): string {
   return value === null ? '—' : `${value.toFixed(2)} ms`
@@ -130,6 +131,28 @@ export function InstrumentationPanel() {
           </button>
         </div>
       </div>
+
+      {IS_DEV_BUILD && (
+        <p
+          data-testid="dev-build-warning"
+          style={{
+            margin: 0,
+            fontSize: 12,
+            fontWeight: 600,
+            color: 'var(--text-warning, #92400e)',
+            background: 'var(--surface-warning, #fef3c7)',
+            border: '1px solid var(--border-warning, #fbbf24)',
+            borderRadius: 6,
+            padding: '8px 10px',
+          }}
+        >
+          Dev build — these numbers are not representative of production
+          performance. React runs in development mode and Redux Toolkit's
+          immutableCheck/serializableCheck stay active, which alone can
+          inflate sync CPU by roughly 10x at 50,000 rows. Run{' '}
+          <code>npm run build && npm run preview</code> to measure for real.
+        </p>
+      )}
 
       <div
         style={{
