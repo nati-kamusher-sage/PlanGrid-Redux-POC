@@ -64,8 +64,17 @@ Redux into `rowData`, and a bridge that hands the grid a one-row
 
 ## Benchmark result
 
-The POC's final result and recommendation are in
-[`docs/benchmark-results/README.md`](docs/benchmark-results/README.md). The
-reference environment was recorded at PR 7 rather than before PR 1 as the
-plan intended; see that note for the caveat this implies for the next design
-review.
+The POC's final result and recommendation, at the 50,000-row scale required
+by [demo preview results](docs/demo%20preview%20results.md), are in the
+[Phase 2 decision
+record](docs/benchmark-results/phase-2/decision-record.md): **proceed**,
+adopting the typed hot-result buffer, with the tradeoffs that need
+production-design review listed there.
+
+The original 1,000-row result,
+[`docs/benchmark-results/README.md`](docs/benchmark-results/README.md), is
+superseded by the above but kept for history — it validated the grid
+integration pattern before the 50,000-row scale and normalized XPNA model
+were in scope. Its own reference environment was recorded after the fact
+(at PR 7 of the original plan, not before PR 1 as intended); the Phase 2
+decision record repeats and updates that caveat.
